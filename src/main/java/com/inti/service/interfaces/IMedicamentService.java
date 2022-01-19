@@ -12,6 +12,4 @@ public interface IMedicamentService {
 	Medicament save(Medicament medicament);
 
 	void delete(Long idMedicament);
-	
-
 }

@@ -4,7 +4,6 @@ import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
 
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -13,9 +12,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
-import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
-import javax.persistence.Table;
 
 @Entity
 public class Consultation {
@@ -83,5 +80,28 @@ public class Consultation {
 	}
 	public void setIdOrdonnance(long idOrdonnance) {
 		this.idOrdonnance = idOrdonnance;
+	}
+	
+	public Ordonnance getOrdonnance() {
+		return ordonnance;
+	}
+
+	public void setOrdonnance(Ordonnance ordonnance) {
+		this.ordonnance = ordonnance;
+	}
+
+	public Set<Consultation> getConsultations() {
+		return consultations;
+	}
+
+	public void setConsultations(Set<Consultation> consultations) {
+		this.consultations = consultations;
+	}
+
+	/** Methodes **/
+	@Override
+	public String toString() {
+		return "Consultation [idConsultation=" + idConsultation + ", idPatient=" + idPatient + ", idMedecin="
+				+ idMedecin + ", date=" + date + ", idOrdonnance=" + idOrdonnance + "]";
 	}
 }

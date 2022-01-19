@@ -1,12 +1,10 @@
 package com.inti.service.impl;
 
 import java.util.List;
-import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.inti.entities.Medicament;
 import com.inti.entities.Ordonnance;
 import com.inti.repositories.OrdonnanceRepository;
 import com.inti.service.interfaces.IOrdonnanceService;
