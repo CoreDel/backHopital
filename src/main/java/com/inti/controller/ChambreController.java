@@ -50,9 +50,9 @@ public class ChambreController {
 	public void deleteChambre(@PathVariable("idChambre") Long idChambre) {
 		chambreService.delete(idChambre);
 	}
+
 	@GetMapping("/chambresDisponibles")
-	public List<Chambre> findByDisponibilite(){
+	public List<Chambre> findByDisponibilite() {
 		return chambreService.findByDisponibilite();
 	}
 }
-
