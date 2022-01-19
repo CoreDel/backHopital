@@ -36,16 +36,4 @@ public class MedicamentService implements IMedicamentService {
 		return medicamentRepository.findById(id).get();
 	}
 
-	@Override
-	public Long checkQuantityById(Long id) {
-		Medicament med = null;
-		med = medicamentRepository.findById(id).get();
-		return med.getQuantMedicament();
-	}
-
-	@Override
-	public Long checkQuantityByName(String name) {
-		return medicamentRepository.checkQuantityByName(name);
-	}
-
 }
