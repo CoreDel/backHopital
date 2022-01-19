@@ -9,7 +9,7 @@ import org.springframework.stereotype.Service;
 import com.inti.entities.Medicament;
 import com.inti.entities.Ordonnance;
 import com.inti.repositories.OrdonnanceRepository;
-import com.inti.service.interfaces.Facture;
+
 import com.inti.service.interfaces.IOrdonnanceService;
 
 @Service
