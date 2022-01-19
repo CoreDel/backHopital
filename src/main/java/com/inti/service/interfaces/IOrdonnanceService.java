@@ -5,7 +5,6 @@ import java.util.Set;
 
 import com.inti.entities.Medicament;
 import com.inti.entities.Ordonnance;
-import com.inti.repositories.Facture;
 
 public interface IOrdonnanceService {
 	List<Ordonnance> findAll();
