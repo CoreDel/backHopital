@@ -47,8 +47,8 @@ public class HopitalController {
 		return hopitalService.save(currentHopital);
 	}
 
-	@DeleteMapping("/hopital/ {idH}")
-	public void deleteHopital(@PathVariable("idHopital") Long idHopital) {
+	@DeleteMapping("/hopital/{idH}")
+	public void deleteHopital(@PathVariable("idH") Long idHopital) {
 		hopitalService.delete(idHopital);
 	}
 }
