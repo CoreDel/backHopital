@@ -84,4 +84,27 @@ public class Consultation {
 	public void setIdOrdonnance(long idOrdonnance) {
 		this.idOrdonnance = idOrdonnance;
 	}
+	
+	public Ordonnance getOrdonnance() {
+		return ordonnance;
+	}
+
+	public void setOrdonnance(Ordonnance ordonnance) {
+		this.ordonnance = ordonnance;
+	}
+
+	public Set<Consultation> getConsultations() {
+		return consultations;
+	}
+
+	public void setConsultations(Set<Consultation> consultations) {
+		this.consultations = consultations;
+	}
+
+	/** Methodes **/
+	@Override
+	public String toString() {
+		return "Consultation [idConsultation=" + idConsultation + ", idPatient=" + idPatient + ", idMedecin="
+				+ idMedecin + ", date=" + date + ", idOrdonnance=" + idOrdonnance + "]";
+	}
 }
