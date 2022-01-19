@@ -12,8 +12,4 @@ public interface IMedicamentService {
 	Medicament save(Medicament medicament);
 
 	void delete(Long idMedicament);
-	
-	Long checkQuantityById(Long id);
-	
-	Long checkQuantityByName(String name);
 }

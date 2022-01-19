@@ -27,17 +27,17 @@ public class OrdonnanceController {
 		return ordonnanceService.findAll();
 	}
 	
-	@GetMapping(value = "ordonnance/{idO}")
+	@GetMapping(value = "ordonnances/{idO}")
 	public Ordonnance findOneById(@PathVariable("idO") Long idOrdonnance) {
 		return ordonnanceService.findOneById(idOrdonnance);
 	}
 	
-	@PostMapping("/ordonnance")
+	@PostMapping("/ordonnances")
 	public Ordonnance saveOrdonnance(@RequestBody Ordonnance ordonnance) {
 		return ordonnanceService.save(ordonnance);
 	}
 	
-	@PutMapping("/ordonnance/{idO}")
+	@PutMapping("/ordonnances/{idO}")
 	public Ordonnance updateOrdonnance(@PathVariable("idO") Long idOrdonnance, @RequestBody Ordonnance ordonnance) {
 		Ordonnance currentOrdonnance = ordonnanceService.findOneById(idOrdonnance);
 		currentOrdonnance.setSoinPrescrit(ordonnance.getSoinPrescrit());
@@ -46,7 +46,7 @@ public class OrdonnanceController {
 		return ordonnanceService.save(currentOrdonnance);
 	}
 	
-	@DeleteMapping("/ordonnance/{idO}")
+	@DeleteMapping("/ordonnances/{idO}")
 	public void deleteOrdonnance(@PathVariable("idO") Long idOrdonnance) {
 		ordonnanceService.delete(idOrdonnance);
 	}
