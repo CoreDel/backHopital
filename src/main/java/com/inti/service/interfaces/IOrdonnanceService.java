@@ -4,6 +4,7 @@ import java.util.List;
 
 import com.inti.entities.Ordonnance;
 
+
 public interface IOrdonnanceService {
 	List<Ordonnance> findAll();
 	
