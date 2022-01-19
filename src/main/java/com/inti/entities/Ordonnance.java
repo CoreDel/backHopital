@@ -1,5 +1,6 @@
 package com.inti.entities;
 
+import java.io.Serializable;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -14,7 +15,7 @@ import javax.persistence.ManyToMany;
 import javax.persistence.OneToOne;
 
 @Entity
-public class Ordonnance {
+public class Ordonnance implements Serializable{
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long idOrdonnance;
@@ -22,6 +23,8 @@ public class Ordonnance {
 	// Relation OneToOne avec facture
 	@OneToOne(mappedBy = "ordonnance")
 	private Facture facture;
+	@OneToOne
+	private Consultation consultation;
 	// Relation ManyToMany avec medicament
 	@ManyToMany(fetch = FetchType.EAGER)
 	@JoinTable(name = "ProfilOrd", joinColumns = @JoinColumn(name = "idOrd", referencedColumnName = "idOrdonnance"), inverseJoinColumns = @JoinColumn(name = "idMed", referencedColumnName = "idMedicament"))
@@ -41,9 +44,10 @@ public class Ordonnance {
 	
 	// constructeur avec les attributs de base et les cle etrangeres
 
-	public Ordonnance(String soinPrescrit, Facture facture, Set<Medicament> medicamentPrescrit) {
+	public Ordonnance(String soinPrescrit, Facture facture, Consultation consultation, Set<Medicament> medicamentPrescrit) {
 		this.soinPrescrit = soinPrescrit;
 		this.facture = facture;
+		this.consultation = consultation;
 		this.medicamentPrescrit = medicamentPrescrit;
 	}
 	
@@ -83,10 +87,18 @@ public class Ordonnance {
 	
 	// toString
 
+	public Consultation getConsultation() {
+		return consultation;
+	}
+
+	public void setConsultation(Consultation consultation) {
+		this.consultation = consultation;
+	}
+
 	@Override
 	public String toString() {
-		return "Ordonnance [idOrdonnance=" + idOrdonnance + ", soinPrescrit=" + soinPrescrit + ", medicamentPrescrit="
-				+ medicamentPrescrit + "]";
+		return "Ordonnance [idOrdonnance=" + idOrdonnance + ", soinPrescrit=" + soinPrescrit + ", facture=" + facture
+				+ ", medicamentPrescrit=" + medicamentPrescrit + "]";
 	}
 	
 }
