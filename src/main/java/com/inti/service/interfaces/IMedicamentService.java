@@ -13,7 +13,5 @@ public interface IMedicamentService {
 
 	void delete(Long idMedicament);
 	
-	Long checkQuantityById(Long id);
-	
-	Long checkQuantityByName(String name);
+
 }
