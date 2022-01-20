@@ -35,7 +35,7 @@ public class Utilisateur implements Serializable{
     private Long age;
     
     //many to many role
-    @ManyToMany(fetch = FetchType.Eager)
+    @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(name = "Profil", joinColumns = @JoinColumn (name = "id_utilisateur", referencedColumnName = "idUtilisateur"), 
     inverseJoinColumns = @JoinColumn (name = "id_role", referencedColumnName ="idRole"))
     private Set<Role> roles = new HashSet<>();
@@ -45,7 +45,7 @@ public class Utilisateur implements Serializable{
     private Set<Hopital> hopitals = new HashSet<>();
     
     //many to many rendez-vous
-    @ManyToMany(fetch = FetchType.Eager)
+    @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(name = "RDV", joinColumns = @JoinColumn (name = "id_utilisateur", referencedColumnName = "idUtilisateur"), 
     inverseJoinColumns = @JoinColumn (name = "id_consultation", referencedColumnName ="idConsultation"))
     private Set<Consultation> consultations = new HashSet<>();
