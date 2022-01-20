@@ -31,6 +31,7 @@ public class Consultation {
 	// Association avec l'entité ordonnance
 	@OneToOne(mappedBy="consultation") 
 	private Ordonnance ordonnance;
+	private Set<Consultation> consultations = new HashSet<>();	
 	
 	/** Constructeurs **/
 	public Consultation() {
@@ -82,6 +83,14 @@ public class Consultation {
 
 	public void setOrdonnance(Ordonnance ordonnance) {
 		this.ordonnance = ordonnance;
+	}
+
+	public Set<Consultation> getConsultations() {
+		return consultations;
+	}
+
+	public void setConsultations(Set<Consultation> consultations) {
+		this.consultations = consultations;
 	}
 
 	/** Methodes **/
