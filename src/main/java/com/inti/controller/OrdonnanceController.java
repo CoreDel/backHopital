@@ -29,7 +29,7 @@ public class OrdonnanceController {
 	
 	@GetMapping(value = "ordonnances/{idO}")
 	public Ordonnance findOneById(@PathVariable("idO") Long idOrdonnance) {
-		return ordonnanceService.findOneById(idOrdonnance);
+		return ordonnanceService.findOne(idOrdonnance);
 	}
 	
 	@PostMapping("/ordonnances")
@@ -39,7 +39,7 @@ public class OrdonnanceController {
 	
 	@PutMapping("/ordonnances/{idO}")
 	public Ordonnance updateOrdonnance(@PathVariable("idO") Long idOrdonnance, @RequestBody Ordonnance ordonnance) {
-		Ordonnance currentOrdonnance = ordonnanceService.findOneById(idOrdonnance);
+		Ordonnance currentOrdonnance = ordonnanceService.findOne(idOrdonnance);
 		currentOrdonnance.setSoinPrescrit(ordonnance.getSoinPrescrit());
 		currentOrdonnance.setFacture(ordonnance.getFacture());
 		currentOrdonnance.setMedicamentPrescrit(ordonnance.getMedicamentPrescrit());
