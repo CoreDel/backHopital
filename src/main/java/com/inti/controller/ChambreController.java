@@ -53,6 +53,6 @@ public class ChambreController {
 
 	@GetMapping("/chambresDisponibles")
 	public List<Chambre> findByDisponibilite() {
-		return chambreService.findByDisponibilite();
+		return chambreService.findByDispoChambre();
 	}
 }
