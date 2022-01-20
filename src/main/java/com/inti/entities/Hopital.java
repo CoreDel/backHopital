@@ -24,6 +24,9 @@ public class Hopital implements Serializable {
 	private Adresse adresse;
 	@OneToMany(mappedBy = "hopital")
 	private Set<Chambre> chambres = new HashSet<>();
+	
+	@OneToMany(mappedBy = "hopitalU")
+	private Set<Utilisateur> utilisateurs=new HashSet<>();
 
 	public Hopital() {
 
@@ -84,10 +87,20 @@ public class Hopital implements Serializable {
 		this.chambres = chambres;
 	}
 
+	public Set<Utilisateur> getUtilisateurs() {
+		return utilisateurs;
+	}
+
+	public void setUtilisateurs(Set<Utilisateur> utilisateurs) {
+		this.utilisateurs = utilisateurs;
+	}
+
 	@Override
 	public String toString() {
 		return "Hopital [idHopital=" + idHopital + ", nomHopital=" + nomHopital + ", numTelHopital=" + numTelHopital
-				+ ", adresse=" + adresse + ", chambres=" + chambres + "]";
+				+ ", adresse=" + adresse + ", chambres=" + chambres + ", utilisateurs=" + utilisateurs + "]";
 	}
+
+	
 
 }
