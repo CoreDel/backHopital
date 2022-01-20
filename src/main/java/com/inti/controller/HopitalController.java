@@ -38,7 +38,7 @@ public class HopitalController {
 		return hopitalService.save(hopital);
 	}
 
-	@PutMapping("/utilisateurs/{idU}")
+	@PutMapping("/hopital/{idH}")
 	public Hopital updateHopital(@PathVariable("idH") Long idHopital, @RequestBody Hopital hopital) {
 		Hopital currentHopital = hopitalService.findOne(idHopital);
 		currentHopital.setNomHopital(hopital.getNomHopital());
@@ -47,8 +47,8 @@ public class HopitalController {
 		return hopitalService.save(currentHopital);
 	}
 
-	@DeleteMapping("/hopital/ {idH]")
-	public void deleteHopital(@PathVariable("idHopital") Long idHopital) {
+	@DeleteMapping("/hopital/{idH}")
+	public void deleteHopital(@PathVariable("idH") Long idHopital) {
 		hopitalService.delete(idHopital);
 	}
 }
