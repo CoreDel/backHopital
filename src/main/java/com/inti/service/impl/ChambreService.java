@@ -47,8 +47,8 @@ public class ChambreService implements IChambreService {
 		return chambreRepository.findBynumChambre(numChambre);
 	}
 
-	@Override
-	public List<Chambre> findByDispoChambre() {
+/*	@Override
+	public List<Chambre> findDispoChambre() {
 		List<Chambre> chambres = new ArrayList<>();
 		List<Chambre> chambresDisponible = new ArrayList<>();
 		chambres = chambreRepository.findAll();
@@ -58,7 +58,7 @@ public class ChambreService implements IChambreService {
 			}
 		}
 		return chambresDisponible;
-	}
+	}*/
 
 	
 
