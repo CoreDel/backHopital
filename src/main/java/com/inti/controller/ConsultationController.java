@@ -35,10 +35,12 @@ public class ConsultationController {
 	}
 	
 	//sauvegarder
+	/*
 	@RequestMapping(value = "consultation", method = RequestMethod.POST)
 	public Consultation saveConsultation(@RequestBody Consultation consultation) {
 		return consultationService.save(consultation);
 	}
+	*/
 	
 	//supprimer
 	@RequestMapping(value = "consultation/{idConsultation}", method = RequestMethod.DELETE)
