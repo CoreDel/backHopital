@@ -16,5 +16,5 @@ public interface IChambreService {
 
 	Chambre findByNumChambre(Long numChambre);
 	
-	List<Chambre> findByDispoChambre();
+	//List<Chambre> findDispoChambre();
 }

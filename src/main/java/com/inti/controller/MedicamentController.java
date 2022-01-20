@@ -32,6 +32,10 @@ public class MedicamentController {
 		return medicamentService.findOneById(idMedicament);
 	}
 	
+	public Medicament findByNom(@PathVariable("nomMed") String nom) {
+		return medicamentService.findByNom(nom);
+	}
+	
 	@PostMapping("/medicaments")
 	public Medicament saveMedicament(@RequestBody Medicament medicament) {
 		return medicamentService.save(medicament);

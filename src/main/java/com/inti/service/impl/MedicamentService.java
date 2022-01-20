@@ -35,4 +35,12 @@ public class MedicamentService implements IMedicamentService {
 	public Medicament findOneById(Long id) {
 		return medicamentRepository.findById(id).get();
 	}
+
+
+	@Override
+	public Medicament findByNom(String nom) {
+		return medicamentRepository.findByNom(nom);
+	}
+	
+	
 }
