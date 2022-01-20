@@ -3,42 +3,45 @@ package com.inti.service.impl;
 import java.util.Date;
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.inti.entities.Consultation;
+import com.inti.repositories.ConsultationRepository;
 import com.inti.service.interfaces.IConsultationService;
 
 @Service
 public class ConsultationService implements IConsultationService {
 
+	@Autowired
+	ConsultationRepository consultationRepository;
+
 	@Override
 	public List<Consultation> findAll() {
-		// TODO Auto-generated method stub
-		return null;
+
+		return consultationRepository.findAll();
 	}
 
 	@Override
 	public Consultation findOne(Long idConsultation) {
-		// TODO Auto-generated method stub
-		return null;
+		
+		return consultationRepository.findById(idConsultation).get();
 	}
 
 	@Override
 	public Consultation save(Consultation consultation) {
-		// TODO Auto-generated method stub
-		return null;
+		
+		return consultationRepository.save(consultation);
 	}
 
 	@Override
 	public void delete(Long idConsultation) {
-		// TODO Auto-generated method stub
-		
+		consultationRepository.deleteById(idConsultation);
+
 	}
 
 	@Override
 	public Consultation findByIdPatientAndDate(Long idPatient, Date date) {
-		// TODO Auto-generated method stub
-		return null;
+		return consultationRepository.findByIdConsultation(idPatient, date);
 	}
-
 }
