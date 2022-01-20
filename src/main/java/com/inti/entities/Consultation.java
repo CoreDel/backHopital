@@ -32,12 +32,6 @@ public class Consultation {
 	@OneToOne(mappedBy="consultation") 
 	private Ordonnance ordonnance;
 	
-	// Association avec utilisateur
-	@ManyToMany(fetch = FetchType.EAGER) 
-	@JoinTable(name = "rendezVous", joinColumns = @JoinColumn(name = "idConsultation", referencedColumnName = "idConsultation"), 
-	inverseJoinColumns = @JoinColumn(name = "idUtilisateur", referencedColumnName = "idUtilisateur"))
-	private Set<Consultation> consultations = new HashSet<>();	
-	
 	/** Constructeurs **/
 	public Consultation() {
 	
@@ -88,14 +82,6 @@ public class Consultation {
 
 	public void setOrdonnance(Ordonnance ordonnance) {
 		this.ordonnance = ordonnance;
-	}
-
-	public Set<Consultation> getConsultations() {
-		return consultations;
-	}
-
-	public void setConsultations(Set<Consultation> consultations) {
-		this.consultations = consultations;
 	}
 
 	/** Methodes **/
