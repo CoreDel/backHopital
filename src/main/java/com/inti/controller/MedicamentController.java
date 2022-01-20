@@ -29,7 +29,7 @@ public class MedicamentController {
 	
 	@GetMapping(value = "/medicaments/{idM}")
 	public Medicament findOneById(@PathVariable("idM") Long idMedicament) {
-		return medicamentService.findOneById(idMedicament);
+		return medicamentService.findOne(idMedicament);
 	}
 	
 	public Medicament findByNom(@PathVariable("nomMed") String nom) {
@@ -43,7 +43,7 @@ public class MedicamentController {
 	
 	@PutMapping("/medicaments/{idM}")
 	public Medicament updateMedicament(@PathVariable("idM") Long idMedicament, @RequestBody Medicament medicament) {
-		Medicament currentMedicament = medicamentService.findOneById(idMedicament);
+		Medicament currentMedicament = medicamentService.findOne(idMedicament);
 		currentMedicament.setNomMedicament(medicament.getNomMedicament());
 		currentMedicament.setDescMedicament(medicament.getDescMedicament());
 		currentMedicament.setQuantMedicament(medicament.getQuantMedicament());
