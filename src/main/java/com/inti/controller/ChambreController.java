@@ -46,13 +46,13 @@ public class ChambreController {
 		return chambreService.save(currentChambre);
 	}
 
-	@DeleteMapping("/chambre/ {idC]")
-	public void deleteChambre(@PathVariable("idChambre") Long idChambre) {
+	@DeleteMapping("/chambre/{idC}")
+	public void deleteChambre(@PathVariable("idC") Long idChambre) {
 		chambreService.delete(idChambre);
 	}
+
 	@GetMapping("/chambresDisponibles")
-	public List<Chambre> findByDisponibilite(){
+	public List<Chambre> findByDisponibilite() {
 		return chambreService.findByDisponibilite();
 	}
 }
-
