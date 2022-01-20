@@ -32,8 +32,9 @@ public class MedicamentController {
 		return medicamentService.findOne(idMedicament);
 	}
 	
-	public Medicament findByNom(@PathVariable("nomMed") String nom) {
-		return medicamentService.findByNom(nom);
+	@GetMapping(value = "/medicaments/{nomMedicament}")
+	public Medicament findByNomMedicament(@PathVariable("nomMedicament") String nomMedicament) {
+		return medicamentService.findByNomMedicament(nomMedicament);
 	}
 	
 	@PostMapping("/medicaments")

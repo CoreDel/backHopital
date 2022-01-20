@@ -33,7 +33,7 @@ public class OrdonnanceService implements IOrdonnanceService {
 	}
 
 	@Override
-	public Ordonnance findOneById(Long id) {
+	public Ordonnance findOne(Long id) {
 		return ordonnanceRepository.findById(id).get();
 	}
 }

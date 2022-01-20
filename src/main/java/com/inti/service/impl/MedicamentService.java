@@ -37,8 +37,8 @@ public class MedicamentService implements IMedicamentService {
 	}
 
 	@Override
-	public Medicament findByNom(String nom) {
-		return medicamentRepository.findByNom(nom);
+	public Medicament findByNomMedicament(String nomMedicament) {
+		return medicamentRepository.findByNomMedicament(nomMedicament);
 	}
 	
 	

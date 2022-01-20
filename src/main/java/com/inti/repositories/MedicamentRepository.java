@@ -7,5 +7,5 @@ import com.inti.entities.Medicament;
 
 @Repository
 public interface MedicamentRepository extends JpaRepository<Medicament, Long>{
-	Medicament findByNom(String nom);
+	Medicament findByNomMedicament(String nomMedicament);
 }

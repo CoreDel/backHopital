@@ -7,7 +7,7 @@ import com.inti.entities.Ordonnance;
 public interface IOrdonnanceService {
 	List<Ordonnance> findAll();
 
-	Ordonnance findOneById(Long id);
+	Ordonnance findOne(Long id);
 
 	Ordonnance save(Ordonnance ordonnance);
 

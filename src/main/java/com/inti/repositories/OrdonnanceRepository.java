@@ -10,5 +10,4 @@ import com.inti.entities.Ordonnance;
 
 @Repository
 public interface OrdonnanceRepository extends JpaRepository<Ordonnance, Long>{
-	Ordonnance findOneById(Long id);
 }
