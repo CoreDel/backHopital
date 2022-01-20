@@ -71,7 +71,7 @@ public class ConsultationController {
 }
 	//mettre à jour une consultation
     @RequestMapping(value="consultation/{idc}", method=RequestMethod.PUT)
-    public Consultation updateDossierMedical(@PathVariable("idc") Long idConsultation,
+    public Consultation updateConsultation(@PathVariable("idc") Long idConsultation,
             @RequestBody Consultation consultation) {
         Consultation currentConsultation = consultationService.findOne(idConsultation);                                                                              
         currentConsultation.setIdConsultation(consultation.getIdConsultation());
