@@ -120,6 +120,13 @@ public class Utilisateur implements Serializable{
 	public void setConsultations(Set<Consultation> consultations) {
 		this.consultations = consultations;
 	}
+	
+	public Set<Role> getRoles() {
+		return roles;
+	}
+	public void setRoles(Set<Role> roles) {
+		this.roles = roles;
+	}
 	@Override
 	public String toString() {
 		return "Utilisateur [idUtilisateur=" + idUtilisateur + ", nomUtilisateur=" + nomUtilisateur
