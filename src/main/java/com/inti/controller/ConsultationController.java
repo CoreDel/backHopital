@@ -52,7 +52,7 @@ public class ConsultationController {
 			@RequestParam(name = "idConsultation", required=true) Long idConsultation, 
 			@RequestParam(name = "idPatient",required = true) Long idPatient,
 			@RequestParam(name = "idMedecin",required = true) Long idMedecin,
-			@RequestParam(name = "date",required = true) Date date{
+			@RequestParam(name = "date",required = true) Date date){
 	try {
 		Consultation currentUser = new Consultation(); 
 		currentUser.setIdConsultation(idConsultation);
