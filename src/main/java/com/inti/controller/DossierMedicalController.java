@@ -46,24 +46,6 @@ public class DossierMedicalController {
 		dossierMedicalService.delete(numeroSecu);
 	}
 	
-	//verification de la sauvegarde
-	@RequestMapping(value = "dossiermedical", method=RequestMethod.POST)
-	public String saveDossierMedical (@RequestParam(name = "numeroSecu", required=true) Long numeroSecu, @RequestParam(name = "antecedent",required = false) String antecedent,
-			@RequestParam(name = "traitement",required = false) String traitement,@RequestParam(name = "operation",required = false) String operations) {
-	try {
-		DossierMedical currentUser = new DossierMedical(); 
-		currentUser.setNumeroSecu(numeroSecu);
-		currentUser.setAntecedent(antecedent);
-		currentUser.setTraitement(traitement);
-		currentUser.setOperation(operations);
-		dossierMedicalService.save(currentUser);
-		return "Dossier ajouté avec succée";
-    }
-	catch(Exception ex) {
-        ex.printStackTrace();
-        return "Le dossier n'a pas pu être ajouté";
-	}
-}
 	//mettre à jour un dossierMedical
     @RequestMapping(value="dossiermedical/{iddm}", method=RequestMethod.PUT)
     public DossierMedical updateDossierMedical(@PathVariable("iddm") Long numeroSecu,
