@@ -32,7 +32,7 @@ public class MedicamentService implements IMedicamentService {
 	}
 
 	@Override
-	public Medicament findOneById(Long id) {
+	public Medicament findOne(Long id) {
 		return medicamentRepository.findById(id).get();
 	}
 

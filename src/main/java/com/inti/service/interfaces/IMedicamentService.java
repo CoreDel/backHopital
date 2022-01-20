@@ -7,7 +7,7 @@ import com.inti.entities.Medicament;
 public interface IMedicamentService {
 	List<Medicament> findAll();
 	
-	Medicament findOneById(Long id);
+	Medicament findOne(Long id);
 
 	Medicament save(Medicament medicament);
 
