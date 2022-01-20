@@ -8,4 +8,5 @@ import com.inti.entities.Medicament;
 @Repository
 public interface MedicamentRepository extends JpaRepository<Medicament, Long>{
 	Medicament findOneById(Long id);
+	Medicament findByNom(String nom);
 }
