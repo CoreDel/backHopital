@@ -4,17 +4,15 @@ import java.io.Serializable;
 import java.util.HashSet;
 import java.util.Set;
 
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinTable;
-import javax.persistence.Lob;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToMany;
-import javax.persistence.OneToMany;
+import javax.persistence.ManyToOne;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
 import javax.persistence.DiscriminatorColumn;
@@ -22,13 +20,13 @@ import javax.persistence.DiscriminatorValue;
 
 @Entity
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
-@DiscriminatorColumn(name = "id_utilisateur")
+@DiscriminatorColumn(name = "idUtilisateur")
 @DiscriminatorValue("Mère")
 public class Utilisateur implements Serializable{
 	@Id
 	@GeneratedValue (strategy = GenerationType.IDENTITY)
 	private Long idUtilisateur;
-	private String nomUtilisateur; 
+	private String nomUtilisateur;
     private String prenomUtilisateur;
     private String username;
     private String password;
@@ -41,8 +39,9 @@ public class Utilisateur implements Serializable{
     private Set<Role> roles = new HashSet<>();
     
     //one to many hopital
-    @OneToMany(mappedBy = "hopital")
-    private Set<Hopital> hopitals = new HashSet<>();
+    @ManyToOne
+    @JoinColumn(name = "idHopital")
+    private Hopital hopital;
     
     //many to many rendez-vous
     @ManyToMany(fetch = FetchType.EAGER)
@@ -115,11 +114,17 @@ public class Utilisateur implements Serializable{
 		this.age = age;
 	}
 	
+	public Set<Consultation> getConsultations() {
+		return consultations;
+	}
+	public void setConsultations(Set<Consultation> consultations) {
+		this.consultations = consultations;
+	}
 	@Override
 	public String toString() {
 		return "Utilisateur [idUtilisateur=" + idUtilisateur + ", nomUtilisateur=" + nomUtilisateur
 				+ ", prenomUtilisateur=" + prenomUtilisateur + ", username=" + username + ", password=" + password
-				+ ", age=" + age + "]";
+				+ ", age=" + age + ", consultations=" + consultations + "]";
 	}
 	
 }
