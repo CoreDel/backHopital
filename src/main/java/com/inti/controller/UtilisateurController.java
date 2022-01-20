@@ -8,7 +8,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.inti.entities.Utilisateur;
@@ -45,7 +44,7 @@ public class UtilisateurController {
     RequestMethod.GET)
     public Utilisateur findByIdUtilisateurAndNom(@PathVariable("idU") Long idUtilisateur,
             @PathVariable("nom") String nomUtilisateur) {
-        return utilisateurService.findByNom(nomUtilisateur);
+        return utilisateurService.findByNomUtilisateur(nomUtilisateur);
     }
     
     //sauvegarder un utilisateur
@@ -54,25 +53,6 @@ public class UtilisateurController {
     	return utilisateurService.save(utilisateur); 
       }
     
-    //verification de la sauvegarde et début de mise en place d'un formulaire
-    @RequestMapping(value="utilisateurs", method=RequestMethod.POST)
-    public String saveUtilisateur(@RequestParam(name = "nomUtilisateur",required = true) String nomUtilisateur, @RequestParam(name="prenomUtilisateur",required = true) String prenomUtilisateur,
-            @RequestParam(name="username",required = true) String username, @RequestParam(name="password",required = true) String password,
-            @RequestParam(name="age", required = true) Long age) {
-        try {
-            Utilisateur currentUser=new Utilisateur();
-            currentUser.setNomUtilisateur(nomUtilisateur);
-            currentUser.setPrenomUtilisateur(prenomUtilisateur);
-            currentUser.setUsername(username);
-            currentUser.setPassword(password);
-            currentUser.setAge(age);
-            utilisateurService.save(currentUser);
-            return "Utilisateur ajouté avec succée";
-        }catch(Exception ex) {
-            ex.printStackTrace();
-            return "L'utilisateur n'a pas pu être ajouté";
-        }
-    }
 
     //mettre à jour un utilisateur
     @RequestMapping(value="utilisateurs/{idU}", method=RequestMethod.PUT)

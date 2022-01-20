@@ -46,9 +46,9 @@ public class UtilisateurService implements IUtilisateurService {
 	}
 
 	@Override
-	public Utilisateur findByNom(String nomUtilisateur) {
+	public Utilisateur findByNomUtilisateur(String nomUtilisateur) {
 		// TODO Auto-generated method stub
-		return utilisateurRepository.findByNom( nomUtilisateur);
+		return utilisateurRepository.findByNomUtilisateur( nomUtilisateur);
 	}
 
 }
