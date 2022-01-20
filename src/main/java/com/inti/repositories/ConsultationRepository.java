@@ -9,5 +9,5 @@ import com.inti.entities.Consultation;
 
 @Repository
 public interface ConsultationRepository extends JpaRepository<Consultation, Long> {
-	Consultation findByIdConsultation(Long idPatient, Date date);
+	Consultation findByIdPatientAndDate(Long idPatient, Date date);
 }

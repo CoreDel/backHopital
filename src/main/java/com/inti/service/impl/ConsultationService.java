@@ -23,8 +23,7 @@ public class ConsultationService implements IConsultationService {
 	}
 
 	@Override
-	public Consultation findOne(Long idConsultation) {
-		
+	public Consultation findOne(Long idConsultation) {	
 		return consultationRepository.findById(idConsultation).get();
 	}
 
@@ -42,6 +41,6 @@ public class ConsultationService implements IConsultationService {
 
 	@Override
 	public Consultation findByIdPatientAndDate(Long idPatient, Date date) {
-		return consultationRepository.findByIdConsultation(idPatient, date);
+		return consultationRepository.findByIdPatientAndDate(idPatient, date);
 	}
 }
