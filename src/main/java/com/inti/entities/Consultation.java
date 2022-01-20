@@ -23,8 +23,7 @@ public class Consultation {
 	/** Associations **/
 	// Association avec l'entité ordonnance
 	@OneToOne(mappedBy="consultation") 
-	private Ordonnance ordonnance;
-		
+	private Ordonnance ordonnance;	
 	
 	/** Constructeurs **/
 	public Consultation() {
