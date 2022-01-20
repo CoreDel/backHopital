@@ -35,10 +35,12 @@ public class ConsultationController {
 	}
 	
 	//sauvegarder
+	/*
 	@RequestMapping(value = "consultation", method = RequestMethod.POST)
 	public Consultation saveConsultation(@RequestBody Consultation consultation) {
 		return consultationService.save(consultation);
 	}
+	*/
 	
 	//supprimer
 	@RequestMapping(value = "consultation/{idConsultation}", method = RequestMethod.DELETE)
@@ -69,7 +71,7 @@ public class ConsultationController {
 }
 	//mettre à jour une consultation
     @RequestMapping(value="consultation/{idc}", method=RequestMethod.PUT)
-    public Consultation updateDossierMedical(@PathVariable("idc") Long idConsultation,
+    public Consultation updateConsultation(@PathVariable("idc") Long idConsultation,
             @RequestBody Consultation consultation) {
         Consultation currentConsultation = consultationService.findOne(idConsultation);                                                                              
         currentConsultation.setIdConsultation(consultation.getIdConsultation());
