@@ -27,7 +27,7 @@ public class MedicamentController {
 		return medicamentService.findAll();
 	}
 	
-	@GetMapping(value = "medicaments/{idM}")
+	@GetMapping(value = "/medicaments/{idM}")
 	public Medicament findOneById(@PathVariable("idM") Long idMedicament) {
 		return medicamentService.findOneById(idMedicament);
 	}
