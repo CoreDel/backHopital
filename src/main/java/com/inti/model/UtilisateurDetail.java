@@ -5,7 +5,6 @@ import java.util.Set;
 
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
-
 import com.inti.entities.Utilisateur;
 
 public class UtilisateurDetail implements UserDetails {

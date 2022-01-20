@@ -16,12 +16,12 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
 import javax.persistence.DiscriminatorColumn;
+import javax.persistence.DiscriminatorType;
 import javax.persistence.DiscriminatorValue;
 
 @Entity
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
-@DiscriminatorColumn(name = "idUtilisateur")
-@DiscriminatorValue("Mère")
+@DiscriminatorColumn(name="type",discriminatorType=DiscriminatorType.STRING) 
 public class Utilisateur implements Serializable{
 	@Id
 	@GeneratedValue (strategy = GenerationType.IDENTITY)
@@ -41,7 +41,7 @@ public class Utilisateur implements Serializable{
     //one to many hopital
     @ManyToOne
     @JoinColumn(name = "idHopital")
-    private Hopital hopital;
+    private Hopital hopitalU;
     
     //many to many rendez-vous
     @ManyToMany(fetch = FetchType.EAGER)
