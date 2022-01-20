@@ -48,7 +48,7 @@ public class ChambreService implements IChambreService {
 	}
 
 	@Override
-	public List<Chambre> findByDisponibilite() {
+	public List<Chambre> findByDispoChambre() {
 		List<Chambre> chambres = new ArrayList<>();
 		List<Chambre> chambresDisponible = new ArrayList<>();
 		chambres = chambreRepository.findAll();
