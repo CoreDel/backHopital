@@ -10,5 +10,5 @@ import com.inti.entities.Chambre;
 @Repository
 public interface ChambreRepository extends JpaRepository<Chambre, Long>{
 	Chambre findBynumChambre(Long numChambre);
-	List<Chambre> findByDisponibilite();
+	List<Chambre> findByDispoChambre();
 }

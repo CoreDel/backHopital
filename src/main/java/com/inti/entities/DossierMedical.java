@@ -1,11 +1,13 @@
 package com.inti.entities;
 
+import java.io.Serializable;
+
 import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 
 @Entity
-@DiscriminatorValue("Fille")
-public class DossierMedical extends Utilisateur {
+@DiscriminatorValue("dMedical")
+public class DossierMedical extends Utilisateur implements Serializable {
 	private Long numeroSecu;
 	private String antecedent;
 	private String traitement;
