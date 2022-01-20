@@ -13,7 +13,6 @@ import javax.persistence.JoinTable;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
 import javax.persistence.DiscriminatorColumn;
@@ -115,11 +114,17 @@ public class Utilisateur implements Serializable{
 		this.age = age;
 	}
 	
+	public Set<Consultation> getConsultations() {
+		return consultations;
+	}
+	public void setConsultations(Set<Consultation> consultations) {
+		this.consultations = consultations;
+	}
 	@Override
 	public String toString() {
 		return "Utilisateur [idUtilisateur=" + idUtilisateur + ", nomUtilisateur=" + nomUtilisateur
 				+ ", prenomUtilisateur=" + prenomUtilisateur + ", username=" + username + ", password=" + password
-				+ ", age=" + age + "]";
+				+ ", age=" + age + ", consultations=" + consultations + "]";
 	}
 	
 }
