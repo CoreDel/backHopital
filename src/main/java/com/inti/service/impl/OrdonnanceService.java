@@ -11,11 +11,11 @@ import com.inti.repositories.OrdonnanceRepository;
 import com.inti.service.interfaces.IOrdonnanceService;
 
 @Service
-public class OrdonnanceService implements IOrdonnanceService{
-	
+public class OrdonnanceService implements IOrdonnanceService {
+
 	@Autowired
 	OrdonnanceRepository ordonnanceRepository;
-	
+
 	@Override
 	public List<Ordonnance> findAll() {
 		return ordonnanceRepository.findAll();

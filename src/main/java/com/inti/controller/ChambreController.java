@@ -46,7 +46,7 @@ public class ChambreController {
 		return chambreService.save(currentChambre);
 	}
 
-	@DeleteMapping("/chambre/{idC}")
+	@DeleteMapping("/chambres/{idC}")
 	public void deleteChambre(@PathVariable("idC") Long idChambre) {
 		chambreService.delete(idChambre);
 	}
