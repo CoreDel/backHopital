@@ -43,11 +43,7 @@ public class Utilisateur implements Serializable{
     @JoinColumn(name = "idHopital")
     private Hopital hopitalU;
     
-    //many to many rendez-vous
-    @ManyToMany(fetch = FetchType.EAGER)
-    @JoinTable(name = "RDV", joinColumns = @JoinColumn (name = "id_utilisateur", referencedColumnName = "idUtilisateur"), 
-    inverseJoinColumns = @JoinColumn (name = "id_consultation", referencedColumnName ="idConsultation"))
-    private Set<Consultation> consultations = new HashSet<>();
+  
     
     public Utilisateur() {
 	}
@@ -114,13 +110,6 @@ public class Utilisateur implements Serializable{
 		this.age = age;
 	}
 	
-	public Set<Consultation> getConsultations() {
-		return consultations;
-	}
-	public void setConsultations(Set<Consultation> consultations) {
-		this.consultations = consultations;
-	}
-	
 	public Set<Role> getRoles() {
 		return roles;
 	}
@@ -131,7 +120,7 @@ public class Utilisateur implements Serializable{
 	public String toString() {
 		return "Utilisateur [idUtilisateur=" + idUtilisateur + ", nomUtilisateur=" + nomUtilisateur
 				+ ", prenomUtilisateur=" + prenomUtilisateur + ", username=" + username + ", password=" + password
-				+ ", age=" + age + ", consultations=" + consultations + "]";
+				+ ", age=" + age + "]";
 	}
 	
 }
