@@ -1,6 +1,6 @@
 package com.inti.model;
 
-import java.util.Collection;
+/*import java.util.Collection;
 import java.util.Set;
 
 import org.springframework.security.core.GrantedAuthority;
@@ -64,4 +64,4 @@ public class UtilisateurDetail implements UserDetails {
 		return true;
 	}
 
-}
+}*/
