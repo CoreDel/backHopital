@@ -26,7 +26,8 @@ public class Consultation {
 	// Association avec l'entité ordonnance
 	@OneToOne(mappedBy="consultation")
 	@Transient
-	private Ordonnance ordonnance;	
+	private Ordonnance ordonnance;
+		
 	
 	/** Constructeurs **/
 	public Consultation() {
