@@ -26,8 +26,14 @@ public class Consultation {
 	/** Associations **/
 	// Association avec l'entité ordonnance
 	@OneToOne(mappedBy="consultation")
+<<<<<<< HEAD
 	private Ordonnance ordonnance;
 
+=======
+	@Transient
+	private Ordonnance ordonnance;
+		
+>>>>>>> c4370353dc9e9b94ff15e083dcf0bd3e61a0c3af
 	
 	/** Constructeurs **/
 	public Consultation() {
