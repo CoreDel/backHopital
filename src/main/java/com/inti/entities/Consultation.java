@@ -1,11 +1,17 @@
 package com.inti.entities;
 
 import java.util.Date;
+import java.util.HashSet;
+import java.util.Set;
 
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.OneToOne;
 
 @Entity
@@ -19,6 +25,12 @@ public class Consultation {
 	private long idPatient;
 	private long idMedecin;
 	private Date date;
+	
+	//many to many utilisateurs
+    @ManyToMany(fetch = FetchType.EAGER)
+    @JoinTable(name = "RDV", joinColumns = @JoinColumn (name = "id_consultation", referencedColumnName = "idConsultation"), 
+    inverseJoinColumns = @JoinColumn (name = "id_utilisateur", referencedColumnName ="idUtilisateur"))
+    private Set<Utilisateur> utilisateurs = new HashSet<>();
 	
 	/** Associations **/
 	// Association avec l'entité ordonnance
@@ -36,6 +48,17 @@ public class Consultation {
 		this.date = date;
 	}
 	
+	
+	
+	public Consultation(long idPatient, long idMedecin, Date date, Set<Utilisateur> utilisateurs,
+			Ordonnance ordonnance) {
+		this.idPatient = idPatient;
+		this.idMedecin = idMedecin;
+		this.date = date;
+		this.utilisateurs = utilisateurs;
+		this.ordonnance = ordonnance;
+	}
+
 	/** Getters & Setters **/
 	public long getIdConsultation() {
 		return idConsultation;
@@ -68,6 +91,14 @@ public class Consultation {
 
 	public void setOrdonnance(Ordonnance ordonnance) {
 		this.ordonnance = ordonnance;
+	}
+	
+	public Set<Utilisateur> getUtilisateurs() {
+		return utilisateurs;
+	}
+
+	public void setUtilisateurs(Set<Utilisateur> utilisateurs) {
+		this.utilisateurs = utilisateurs;
 	}
 
 	/** Methodes **/
