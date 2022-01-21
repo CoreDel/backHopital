@@ -35,8 +35,8 @@ public class FactureController {
 	}
 	
 	//findBy
-	@GetMapping(value = "/factures/{idF}/{type}")
-	public Facture findByPrixAndType(@PathVariable("idF") Long prix,@PathVariable("type") String type) {
+	@GetMapping(value = "/factures/{prix}/{type}")
+	public Facture findByPrixAndType(@PathVariable("prix") Long prix,@PathVariable("type") String type) {
 		return factureService.findByPrixAndType(prix, type);
 	}
 	
