@@ -54,12 +54,14 @@ public class ConsultationController {
 			@RequestParam(name = "idConsultation", required=true) Long idConsultation, 
 			@RequestParam(name = "idPatient",required = true) Long idPatient,
 			@RequestParam(name = "idMedecin",required = true) Long idMedecin,
+			@RequestParam(name = "motifConsultation",required = false) String motifConsultation,
 			@RequestParam(name = "date",required = true) Date date){
 	try {
 		Consultation currentUser = new Consultation(); 
 		currentUser.setIdConsultation(idConsultation);
 		currentUser.setIdPatient(idPatient);
 		currentUser.setIdMedecin(idMedecin);
+		currentUser.setMotifConsultation(motifConsultation);
 		currentUser.setDate(date);
 		consultationService.save(currentUser);
 		return "Consultation ajoutée avec succée";
@@ -77,6 +79,7 @@ public class ConsultationController {
         currentConsultation.setIdConsultation(consultation.getIdConsultation());
         currentConsultation.setIdPatient(consultation.getIdPatient());
         currentConsultation.setIdMedecin(consultation.getIdMedecin());
+        currentConsultation.setMotifConsultation(consultation.getMotifConsultation());
         currentConsultation.setDate(consultation.getDate());
         
         return consultationService.save(currentConsultation);

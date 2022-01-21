@@ -18,6 +18,7 @@ public class Consultation {
 	private long idConsultation;
 	private long idPatient;
 	private long idMedecin;
+	private String motifConsultation;
 	private Date date;
 	
 	/** Associations **/
@@ -30,9 +31,10 @@ public class Consultation {
 	
 	}
 
-	public Consultation(long idPatient, long idMedecin, Date date) {
+	public Consultation(long idPatient, long idMedecin, String motifConsultation, Date date) {
 		this.idPatient = idPatient;
 		this.idMedecin = idMedecin;
+		this.motifConsultation = motifConsultation;
 		this.date = date;
 	}
 	
@@ -70,10 +72,19 @@ public class Consultation {
 		this.ordonnance = ordonnance;
 	}
 
+	
+	public String getMotifConsultation() {
+		return motifConsultation;
+	}
+
+	public void setMotifConsultation(String motifConsultation) {
+		this.motifConsultation = motifConsultation;
+	}
+	
 	/** Methodes **/
 	@Override
 	public String toString() {
 		return "Consultation [idConsultation=" + idConsultation + ", idPatient=" + idPatient + ", idMedecin="
-				+ idMedecin + ", date=" + date + ", ordonnance=" + ordonnance + "]";
+				+ idMedecin + ", motifConsultation=" + motifConsultation + ", date=" + date + "]";
 	}
 }
