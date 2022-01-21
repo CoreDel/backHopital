@@ -7,6 +7,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToOne;
+import javax.persistence.Transient;
 
 @Entity
 public class Consultation {
@@ -23,7 +24,8 @@ public class Consultation {
 	
 	/** Associations **/
 	// Association avec l'entité ordonnance
-	@OneToOne(mappedBy="consultation") 
+	@OneToOne(mappedBy="consultation")
+	@Transient
 	private Ordonnance ordonnance;	
 	
 	/** Constructeurs **/
