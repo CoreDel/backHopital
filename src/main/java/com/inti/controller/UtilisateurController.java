@@ -3,7 +3,7 @@ package com.inti.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.crypto.password.PasswordEncoder;
+//import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -20,8 +20,8 @@ public class UtilisateurController {
     @Autowired
     IUtilisateurService utilisateurService;
     
-    @Autowired
-    PasswordEncoder passwordEncoder;
+   // @Autowired
+   // PasswordEncoder passwordEncoder;
     
     //find all
     @RequestMapping(value="utilisateurs", method = RequestMethod.GET)
@@ -36,18 +36,16 @@ public class UtilisateurController {
     }
     
     //find by username
-    @RequestMapping(value="utilisateurs/{idU}/{username}", method =
+    @RequestMapping(value="utilisateurs/{username}", method =
     RequestMethod.GET)
-    public Utilisateur findByIdUtilisateurAndUsername(@PathVariable("idU") Long idUtilisateur,
-            @PathVariable("username") String username) {
+    public Utilisateur findByUsername(@PathVariable("username") String username) {
         return utilisateurService.findByUsername(username);
     }
     
     //find by nom
-    @RequestMapping(value="utilisateurs/{idU}/{nom}", method =
+    @RequestMapping(value="utilisateurs/{nom}", method =
     RequestMethod.GET)
-    public Utilisateur findByIdUtilisateurAndNom(@PathVariable("idU") Long idUtilisateur,
-            @PathVariable("nom") String nomUtilisateur) {
+    public Utilisateur findByNom(@PathVariable("nom") String nomUtilisateur) {
         return utilisateurService.findByNomUtilisateur(nomUtilisateur);
     }
     

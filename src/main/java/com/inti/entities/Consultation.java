@@ -1,17 +1,11 @@
 package com.inti.entities;
 
 import java.util.Date;
-import java.util.HashSet;
-import java.util.Set;
 
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
-import javax.persistence.ManyToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Transient;
 
@@ -25,8 +19,8 @@ public class Consultation {
 	private long idConsultation;
 	private long idPatient;
 	private long idMedecin;
+	private String motifConsultation;
 	private Date date;
-	private long idOrdonnance;
 	
 	/** Associations **/
 	// Association avec l'entité ordonnance
@@ -40,11 +34,11 @@ public class Consultation {
 	
 	}
 
-	public Consultation(long idPatient, long idMedecin, Date date, long idOrdonnance) {
+	public Consultation(long idPatient, long idMedecin, String motifConsultation, Date date) {
 		this.idPatient = idPatient;
 		this.idMedecin = idMedecin;
+		this.motifConsultation = motifConsultation;
 		this.date = date;
-		this.idOrdonnance = idOrdonnance;
 	}
 	
 	/** Getters & Setters **/
@@ -72,12 +66,6 @@ public class Consultation {
 	public void setDate(Date date) {
 		this.date = date;
 	}
-	public long getIdOrdonnance() {
-		return idOrdonnance;
-	}
-	public void setIdOrdonnance(long idOrdonnance) {
-		this.idOrdonnance = idOrdonnance;
-	}
 	
 	public Ordonnance getOrdonnance() {
 		return ordonnance;
@@ -87,11 +75,19 @@ public class Consultation {
 		this.ordonnance = ordonnance;
 	}
 
+	
+	public String getMotifConsultation() {
+		return motifConsultation;
+	}
 
+	public void setMotifConsultation(String motifConsultation) {
+		this.motifConsultation = motifConsultation;
+	}
+	
 	/** Methodes **/
 	@Override
 	public String toString() {
 		return "Consultation [idConsultation=" + idConsultation + ", idPatient=" + idPatient + ", idMedecin="
-				+ idMedecin + ", date=" + date + ", idOrdonnance=" + idOrdonnance + "]";
+				+ idMedecin + ", motifConsultation=" + motifConsultation + ", date=" + date + "]";
 	}
 }
