@@ -13,6 +13,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.OneToOne;
+import javax.persistence.Transient;
 
 @Entity
 public class Consultation {
@@ -29,7 +30,8 @@ public class Consultation {
 	
 	/** Associations **/
 	// Association avec l'entité ordonnance
-	@OneToOne(mappedBy="consultation") 
+	@OneToOne(mappedBy="consultation")
+	@Transient
 	private Ordonnance ordonnance;
 		
 	
