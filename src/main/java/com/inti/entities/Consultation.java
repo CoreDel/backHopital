@@ -8,6 +8,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToOne;
+import javax.persistence.Transient;
 
 @Entity
 public class Consultation {
@@ -19,21 +20,24 @@ public class Consultation {
 	private long idConsultation;
 	private long idPatient;
 	private long idMedecin;
+	private String motifConsultation;
 	private Date date;
 	
 	/** Associations **/
 	// Association avec l'entité ordonnance
 	@OneToOne(mappedBy="consultation")
 	private Ordonnance ordonnance;
+
 	
 	/** Constructeurs **/
 	public Consultation() {
 	
 	}
 
-	public Consultation(long idPatient, long idMedecin, Date date) {
+	public Consultation(long idPatient, long idMedecin, String motifConsultation, Date date) {
 		this.idPatient = idPatient;
 		this.idMedecin = idMedecin;
+		this.motifConsultation = motifConsultation;
 		this.date = date;
 	}
 	
@@ -71,10 +75,19 @@ public class Consultation {
 		this.ordonnance = ordonnance;
 	}
 
+	
+	public String getMotifConsultation() {
+		return motifConsultation;
+	}
+
+	public void setMotifConsultation(String motifConsultation) {
+		this.motifConsultation = motifConsultation;
+	}
+	
 	/** Methodes **/
 	@Override
 	public String toString() {
 		return "Consultation [idConsultation=" + idConsultation + ", idPatient=" + idPatient + ", idMedecin="
-				+ idMedecin + ", date=" + date + ", ordonnance=" + ordonnance + "]";
+				+ idMedecin + ", motifConsultation=" + motifConsultation + ", date=" + date + "]";
 	}
 }
