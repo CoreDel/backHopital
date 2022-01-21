@@ -1,6 +1,6 @@
 package com.inti.config;
 
-import org.springframework.beans.factory.annotation.Autowired;
+/*import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -12,7 +12,7 @@ import com.inti.service.impl.AppUserDetailsService;
 
 //@Configuration // pour créer un bean avec le nom suivant : securityConfig
 //@EnableWebSecurity
-public class SecurityConfig /*extends WebSecurityConfiguration*/{
+public class SecurityConfig /*extends WebSecurityConfiguration{
 	/*@Autowired
 	*private AppUserDetailsService appUserDetailsService;
 	*@Autowired
@@ -37,5 +37,5 @@ public class SecurityConfig /*extends WebSecurityConfiguration*/{
 	*		.httpBasic()
 	*		.and()
 	*		.csrf().disable();
-	}*/
-}
+	}
+}*/
