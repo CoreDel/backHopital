@@ -16,8 +16,8 @@ public class GestionHopitalApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(GestionHopitalApplication.class, args);
 	}
-	@Bean
-	public BCryptPasswordEncoder passwordEncoder() {
-		return new BCryptPasswordEncoder();
-	}
+	//@Bean
+	//public BCryptPasswordEncoder passwordEncoder() {
+		//return new BCryptPasswordEncoder();
+	//}
 }

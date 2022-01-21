@@ -20,8 +20,8 @@ public class UtilisateurController {
     @Autowired
     IUtilisateurService utilisateurService;
     
-    @Autowired
-    PasswordEncoder passwordEncoder;
+   // @Autowired
+   // PasswordEncoder passwordEncoder;
     
     //find all
     @RequestMapping(value="utilisateurs", method = RequestMethod.GET)
