@@ -4,6 +4,7 @@ import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
 
+
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -39,7 +40,6 @@ public class Consultation {
 	@OneToOne(mappedBy="consultation")
 	@Transient
 	private Ordonnance ordonnance;
-		
 	
 	/** Constructeurs **/
 	public Consultation() {
