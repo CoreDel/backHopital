@@ -51,4 +51,9 @@ public class UtilisateurService implements IUtilisateurService {
 		return utilisateurRepository.findByNomUtilisateur( nomUtilisateur);
 	}
 
+	@Override
+	public List<Utilisateur> findByRole(String libelle) {
+		return utilisateurRepository.showUserByRole(libelle);
+	}
+
 }

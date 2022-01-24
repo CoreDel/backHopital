@@ -51,6 +51,12 @@ public class UtilisateurController {
         return utilisateurService.findByNomUtilisateur(nomUtilisateur);
     }
     
+    //find by role
+    @RequestMapping(value = "user/{libelle_role}", method = RequestMethod.GET)
+    public List<Utilisateur> findByRole(@PathVariable("libelle_role") String libelle){
+    	return utilisateurService.findByRole(libelle);
+    }
+    
     //sauvegarder un utilisateur
     @RequestMapping(value="utilisateurs", method=RequestMethod.POST)
     public Utilisateur saveutilisateur(@RequestBody Utilisateur utilisateur) { 
