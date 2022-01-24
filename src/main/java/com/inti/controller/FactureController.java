@@ -40,6 +40,12 @@ public class FactureController {
 		return factureService.findByPrixAndType(prix, type);
 	}
 	
+	//findByNomUtilisateurAndPrenomUtilisateur
+	@GetMapping(value = "/factures/utilisateurs/{nom}/{prenom}")
+	public List<Facture> findByNomUtilisateurAndPrenomUtilisateur(@PathVariable("nom") String nomUtilisateur,@PathVariable("prenom") String prenomUtilisateur) {
+		return factureService.findByNomUtilisateurAndPrenomUtilisateur(nomUtilisateur, prenomUtilisateur);
+	}
+	
 	//save
 	@PostMapping(value = "/factures")
 	public Facture saveFacture(@RequestBody Facture facture){

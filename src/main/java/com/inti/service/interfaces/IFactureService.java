@@ -10,4 +10,5 @@ public interface IFactureService {
 	Facture save(Facture facture);
 	void delete(Long idFacture);
 	Facture findByPrixAndType(Long prix, String type);
+	List<Facture> findByNomUtilisateurAndPrenomUtilisateur(String nomUtilisateur, String prenomUtilisateur);
 }
