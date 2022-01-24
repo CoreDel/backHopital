@@ -25,6 +25,7 @@ public class Ordonnance implements Serializable{
 	@OneToOne(mappedBy = "ordonnance")
 	private Facture facture;
 	@OneToOne
+	@JoinColumn(name="id_consultation")
 	private Consultation consultation;
 	// Relation ManyToMany avec medicament
 	@ManyToMany(fetch = FetchType.EAGER)

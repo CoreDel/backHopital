@@ -38,7 +38,7 @@ public class MedicamentController {
 		return medicaments;
 	}
 	
-	@GetMapping(value = "/medocs/{id_Ord}")
+	@GetMapping(value = "/ordonnances/medicaments/{id_Ord}")
 	public List<Medicament> findByIdOrdonnance(@PathVariable("id_Ord") Long idOrdonnance) {
 		List<Medicament> medicaments = medicamentService.findByIdOrdonnance(idOrdonnance);
 		return medicaments;

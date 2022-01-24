@@ -32,6 +32,11 @@ public class OrdonnanceController {
 		return ordonnanceService.findOne(idOrdonnance);
 	}
 	
+	@GetMapping(value = "ordonnances/{nom}/{prenom}")
+	public List<Ordonnance> findByNomUtilisateurAndPrenomUtilisateur(@PathVariable("nom") String nomUtilisateur, @PathVariable("prenom") String prenomUtilisateur) {
+		return ordonnanceService.findByNomUtilisateurAndPrenomUtilisateur(nomUtilisateur, prenomUtilisateur);
+	}
+	
 	@PostMapping("/ordonnances")
 	public Ordonnance saveOrdonnance(@RequestBody Ordonnance ordonnance) {
 		return ordonnanceService.save(ordonnance);

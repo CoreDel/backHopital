@@ -36,4 +36,9 @@ public class OrdonnanceService implements IOrdonnanceService {
 	public Ordonnance findOne(Long id) {
 		return ordonnanceRepository.findById(id).get();
 	}
+
+	@Override
+	public List<Ordonnance> findByNomUtilisateurAndPrenomUtilisateur(String nomUtilisateur, String prenomUtilisateur) {
+		return ordonnanceRepository.showOrdonnanceByNomAndPrenom(nomUtilisateur, prenomUtilisateur);
+	}
 }

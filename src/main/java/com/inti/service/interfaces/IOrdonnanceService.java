@@ -12,4 +12,6 @@ public interface IOrdonnanceService {
 	Ordonnance save(Ordonnance ordonnance);
 
 	void delete(Long idOrdonnance);
+	
+	List<Ordonnance> findByNomUtilisateurAndPrenomUtilisateur(String nomUtilisateur, String prenomUtilisateur);
 }
