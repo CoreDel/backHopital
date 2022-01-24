@@ -14,4 +14,6 @@ public interface IMedicamentService {
 	void delete(Long idMedicament);
 	
 	List<Medicament> findByNomMedicament(String nomMedicament);
+	
+	List<Medicament> findByIdOrdonnance(Long idOrdonnance);
 }

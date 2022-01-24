@@ -38,6 +38,12 @@ public class MedicamentController {
 		return medicaments;
 	}
 	
+	@GetMapping(value = "/medocs/{id_Ord}")
+	public List<Medicament> findByIdOrdonnance(@PathVariable("id_Ord") Long idOrdonnance) {
+		List<Medicament> medicaments = medicamentService.findByIdOrdonnance(idOrdonnance);
+		return medicaments;
+	}
+	
 	@PostMapping("/medicaments")
 	public Medicament saveMedicament(@RequestBody Medicament medicament) {
 		return medicamentService.save(medicament);
