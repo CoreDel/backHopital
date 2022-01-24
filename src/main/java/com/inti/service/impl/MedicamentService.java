@@ -41,4 +41,9 @@ public class MedicamentService implements IMedicamentService {
 		return medicamentRepository.findByNomMedicament(nomMedicament);
 	}
 
+	@Override
+	public List<Medicament> findByIdOrdonnance(Long idOrdonnance) {
+		return medicamentRepository.showMedocById(idOrdonnance);
+	}
+
 }
