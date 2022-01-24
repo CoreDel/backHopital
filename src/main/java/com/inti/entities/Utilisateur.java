@@ -19,8 +19,8 @@ import javax.persistence.DiscriminatorColumn;
 import javax.persistence.DiscriminatorType;
 
 @Entity
-@Inheritance(strategy = InheritanceType.JOINED)
-@DiscriminatorColumn(name="type",discriminatorType = DiscriminatorType.STRING) 
+@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
+@DiscriminatorColumn(name="dossier_medical", discriminatorType = DiscriminatorType.STRING)
 public class Utilisateur implements Serializable{
 	@Id
 	@GeneratedValue (strategy = GenerationType.IDENTITY)

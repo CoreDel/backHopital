@@ -51,8 +51,8 @@ public class ChambreController {
 		chambreService.delete(idChambre);
 	}
 
-	/*@GetMapping("/chambresDisponibles")
+	@GetMapping("/chambresDisponibles")
 	public List<Chambre> findDispoChambre() {
 		return chambreService.findDispoChambre();
-	}*/
+	}
 }
