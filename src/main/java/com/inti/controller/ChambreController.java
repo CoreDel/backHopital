@@ -28,10 +28,10 @@ public class ChambreController {
 		return chambreService.findAll();
 	}
 
-	@RequestMapping(value = "chambres/{idC}", method = RequestMethod.GET)
+	/*@RequestMapping(value = "chambres/{idC}", method = RequestMethod.GET)
 	public Chambre findOne(@PathVariable("idC") Long idChambre) {
 		return chambreService.findOne(idChambre);
-	}
+	}*/
 
 	@PostMapping("/chambres")
 	public Chambre saveChambre(@RequestBody Chambre chambre) {

@@ -10,6 +10,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+import javax.persistence.Transient;
 
 import com.inti.model.Adresse;
 
@@ -23,9 +24,11 @@ public class Hopital implements Serializable {
 	@Embedded
 	private Adresse adresse;
 	@OneToMany(mappedBy = "hopital")
+	@Transient
 	private Set<Chambre> chambres = new HashSet<>();
 	
 	@OneToMany(mappedBy = "hopitalU")
+	@Transient
 	private Set<Utilisateur> utilisateurs=new HashSet<>();
 
 	public Hopital() {
