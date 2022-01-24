@@ -17,11 +17,10 @@ import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
 import javax.persistence.DiscriminatorColumn;
 import javax.persistence.DiscriminatorType;
-import javax.persistence.DiscriminatorValue;
 
 @Entity
-@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
-@DiscriminatorColumn(name="type",discriminatorType=DiscriminatorType.STRING) 
+@Inheritance(strategy = InheritanceType.JOINED)
+@DiscriminatorColumn(name="type",discriminatorType = DiscriminatorType.STRING) 
 public class Utilisateur implements Serializable{
 	@Id
 	@GeneratedValue (strategy = GenerationType.IDENTITY)
