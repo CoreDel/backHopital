@@ -44,4 +44,9 @@ public class FactureService implements IFactureService{
 		return factureRepository.findByPrixAndType(prix, type);
 	}
 
+	@Override
+	public List<Facture> findByNomUtilisateurAndPrenomUtilisateur(String nomUtilisateur, String prenomUtilisateur) {
+		return factureRepository.showFactureByNomAndPrenom(nomUtilisateur, prenomUtilisateur);
+	}
+
 }
