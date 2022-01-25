@@ -47,7 +47,7 @@ public class FactureController {
 	}
 	
 	//findBy (idOrdonnance)
-	@GetMapping(value = "/facturesOrdonnances/{idO}")
+	@GetMapping(value = "/ordonnances/factures/{idO}")
 	public Facture findByIdOrdonnance(@PathVariable("idO") Long idOrdonnance) {
 		return factureService.findByIdOrdonnance(idOrdonnance);
 	}

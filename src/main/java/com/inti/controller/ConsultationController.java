@@ -23,19 +23,19 @@ public class ConsultationController {
 	IConsultationService consultationService;
 
 	//find all
-	@RequestMapping(value = "consultation", method = RequestMethod.GET)
+	@RequestMapping(value = "consultations", method = RequestMethod.GET)
 	public List<Consultation> findAll(){
 		return consultationService.findAll();
 	}
 	
 	//find one
-	@RequestMapping(value="consultation/{idc}", method = RequestMethod.GET)
-	public Consultation findOne(@PathVariable("idc") Long idConsultation) {
+	@RequestMapping(value="consultations/{idC}", method = RequestMethod.GET)
+	public Consultation findOne(@PathVariable("idC") Long idConsultation) {
 		return consultationService.findOne(idConsultation);
 	}
 	
 	//findBy (idOrdonnance)
-	@RequestMapping(value="consultationOrdonnance/{idO}", method = RequestMethod.GET)
+	@RequestMapping(value="ordonnances/consultations/{idO}", method = RequestMethod.GET)
 	public Consultation findByIdOrdonnance(@PathVariable("idO") Long idOrdonnance) {
 		return consultationService.findByIdOrdonnance(idOrdonnance);
 	}
@@ -49,13 +49,13 @@ public class ConsultationController {
 	*/
 	
 	//supprimer
-	@RequestMapping(value = "consultation/{idConsultation}", method = RequestMethod.DELETE)
+	@RequestMapping(value = "consultations/{idConsultation}", method = RequestMethod.DELETE)
 	public void deleteConsultation(@PathVariable("idConsultation") Long idConsultation) {
 		consultationService.delete(idConsultation);
 	}
 	
 	//verification de la sauvegarde
-	@RequestMapping(value = "consultation", method=RequestMethod.POST)
+	@RequestMapping(value = "consultations", method=RequestMethod.POST)
 	public String saveConsultation (
 			@RequestParam(name = "idConsultation", required=true) Long idConsultation, 
 			@RequestParam(name = "idPatient",required = true) Long idPatient,
@@ -78,7 +78,7 @@ public class ConsultationController {
 	}
 }
 	//mettre à jour une consultation
-    @RequestMapping(value="consultation/{idc}", method=RequestMethod.PUT)
+    @RequestMapping(value="consultations/{idc}", method=RequestMethod.PUT)
     public Consultation updateConsultation(@PathVariable("idc") Long idConsultation,
             @RequestBody Consultation consultation) {
         Consultation currentConsultation = consultationService.findOne(idConsultation);                                                                              
