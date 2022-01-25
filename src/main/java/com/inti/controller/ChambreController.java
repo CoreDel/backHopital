@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.inti.entities.Chambre;
+import com.inti.entities.Medicament;
 import com.inti.service.interfaces.IChambreService;
 
 @RestController
@@ -59,6 +60,11 @@ public class ChambreController {
 	@GetMapping("/nombreChambresDisponibles")
 	public Integer nombreDispoChambre() {
 		return chambreService.nombreDispoChambre();
+	}
+	@GetMapping(value = "/chambres/{numChambre}")
+	public List<Chambre> findByNumChambre(@PathVariable("numChambre") Long numChambre) {
+		List<Chambre> chambres = chambreService.findByNumChambre(numChambre);
+		return chambres;
 	}
 	
 	

@@ -42,7 +42,7 @@ public class ChambreService implements IChambreService {
 	}
 
 	@Override
-	public Chambre findByNumChambre(Long numChambre) {
+	public List<Chambre> findByNumChambre(Long numChambre) {
 		
 		return chambreRepository.findBynumChambre(numChambre);
 	}
