@@ -11,7 +11,8 @@ import com.inti.entities.Utilisateur;
 @Repository
 public interface UtilisateurRepository extends JpaRepository<Utilisateur, Long>{
 	Utilisateur findByUsername(String username);
-	Utilisateur findByNomUtilisateur(String nomUtilisateur);
+	
+	Utilisateur findByNomUtilisateurAndPrenomUtilisateur(String nomUtilisateur, String prenomUtilisateur);
 	
 	// affiche users en fonction du role(libelle)
 	@Query(value = "SELECT * FROM utilisateur WHERE id_utilisateur IN (SELECT id_utilisateur FROM profil WHERE id_role IN (SELECT id_role FROM role WHERE libelle =?1 ))",

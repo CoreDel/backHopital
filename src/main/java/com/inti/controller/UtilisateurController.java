@@ -36,17 +36,16 @@ public class UtilisateurController {
     }
     
     //find by username
-    @RequestMapping(value="utilisateurs/{username}", method =
+    @RequestMapping(value="utilisateurs/username/{username}", method =
     RequestMethod.GET)
     public Utilisateur findByUsername(@PathVariable("username") String username) {
         return utilisateurService.findByUsername(username);
     }
     
-    //find by nom
-    @RequestMapping(value="utilisateurs/{nom}", method =
-    RequestMethod.GET)
-    public Utilisateur findByNom(@PathVariable("nom") String nomUtilisateur) {
-        return utilisateurService.findByNomUtilisateur(nomUtilisateur);
+    //find by nom et prenom
+    @RequestMapping(value="utilisateurs/{nom}/{prenom}", method = RequestMethod.GET)
+    public Utilisateur findByNomUtilisateurAndPrenomUtilisateur(@PathVariable("nom") String nomUtilisateur, @PathVariable("prenom") String prenomUtilisateur) {
+        return utilisateurService.findByNomUtilisateurAndPrenomUtilisateur(nomUtilisateur, prenomUtilisateur);
     }
     
     //find by role

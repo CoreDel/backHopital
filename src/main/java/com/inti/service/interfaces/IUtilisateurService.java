@@ -11,8 +11,10 @@ public interface IUtilisateurService {
 	Utilisateur findOne (Long idUtilisateur);
 	Utilisateur save(Utilisateur utilisateur);
 	void delete(Long idUtilisateur);
+	
 	Utilisateur findByUsername(String username);
-	Utilisateur findByNomUtilisateur(String nomUtilisateur);
+	
+	Utilisateur findByNomUtilisateurAndPrenomUtilisateur(String nomUtilisateur, String prenomUtilisateur);
 	
 	List<Utilisateur> findByRole(String libelle);
 	Integer nbUserByRole(String libelle);
