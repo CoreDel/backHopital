@@ -34,7 +34,7 @@ public class FactureController {
 		return factureService.findOne(idFacture);
 	}
 	
-	//findBy
+	//findBy (prix et type)
 	@GetMapping(value = "/factures/{prix}/{type}")
 	public Facture findByPrixAndType(@PathVariable("prix") Long prix,@PathVariable("type") String type) {
 		return factureService.findByPrixAndType(prix, type);
@@ -44,6 +44,12 @@ public class FactureController {
 	@GetMapping(value = "/factures/utilisateurs/{nom}/{prenom}")
 	public List<Facture> findByNomUtilisateurAndPrenomUtilisateur(@PathVariable("nom") String nomUtilisateur,@PathVariable("prenom") String prenomUtilisateur) {
 		return factureService.findByNomUtilisateurAndPrenomUtilisateur(nomUtilisateur, prenomUtilisateur);
+	}
+	
+	//findBy (idOrdonnance)
+	@GetMapping(value = "/facturesOrdonnances/{idO}")
+	public Facture findByIdOrdonnance(@PathVariable("idO") Long idOrdonnance) {
+		return factureService.findByIdOrdonnance(idOrdonnance);
 	}
 	
 	//save

@@ -49,4 +49,9 @@ public class FactureService implements IFactureService{
 		return factureRepository.showFactureByNomAndPrenom(nomUtilisateur, prenomUtilisateur);
 	}
 
+	@Override
+	public Facture findByIdOrdonnance(Long idOrdonnance) {
+		return factureRepository.findByIdOrdonnance(idOrdonnance);
+	}
+
 }
