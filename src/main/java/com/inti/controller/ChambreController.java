@@ -55,4 +55,12 @@ public class ChambreController {
 	public List<Chambre> findDispoChambre() {
 		return chambreService.findDispoChambre();
 	}
+	
+	@GetMapping("/nombreChambresDisponibles")
+	public Integer nombreDispoChambre() {
+		return chambreService.nombreDispoChambre();
+	}
+	
+	
+	
 }

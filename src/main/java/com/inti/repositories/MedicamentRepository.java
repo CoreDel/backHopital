@@ -13,7 +13,7 @@ import com.inti.entities.Utilisateur;
 public interface MedicamentRepository extends JpaRepository<Medicament, Long>{
 	List<Medicament> findByNomMedicament(String nomMedicament);
 	
-	@Query(value = "SELECT nom_medicament FROM medicament WHERE id_medicament IN (SELECT id_med FROM profil_ord WHERE id_ord IN (SELECT id_ordonnance FROM ordonnance WHERE id_ordonnance = ?1 ));",
+	@Query(value = "SELECT * FROM medicament WHERE id_medicament IN (SELECT id_med FROM profil_ord WHERE id_ord IN (SELECT id_ordonnance FROM ordonnance WHERE id_ordonnance = ?1 ));",
 			nativeQuery = true)
 	List<Medicament> showMedocById(Long idOrdonnance);
 }
