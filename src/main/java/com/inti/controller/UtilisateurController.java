@@ -82,4 +82,11 @@ public class UtilisateurController {
     public void deleteUtilisateur(@PathVariable("idUtilisateur") Long idUtilisateur) {
         utilisateurService.delete(idUtilisateur);
     }
+    
+    //nombre d'utilisateur
+    @RequestMapping(value = "nombreutilisateurs/{libelle_role}", method = RequestMethod.GET)
+    public Integer nbUserByRole(@PathVariable("libelle_role") String libelle){
+    	return utilisateurService.nbUserByRole(libelle);
+    }
+    
 }

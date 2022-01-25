@@ -52,6 +52,11 @@ public class ChambreService implements IChambreService {
 		return chambreRepository.findDispoChambre();
 	}
 
+	@Override
+	public Integer nombreDispoChambre() {
+		return chambreRepository.nombreDispoChambre();
+	}
+
 	
 
 }

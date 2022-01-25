@@ -56,4 +56,9 @@ public class UtilisateurService implements IUtilisateurService {
 		return utilisateurRepository.showUserByRole(libelle);
 	}
 
+	@Override
+	public Integer nbUserByRole(String libelle) {
+		return utilisateurRepository.nbUserByRole(libelle);
+	}
+
 }
