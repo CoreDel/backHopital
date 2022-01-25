@@ -13,5 +13,7 @@ public interface IUtilisateurService {
 	void delete(Long idUtilisateur);
 	Utilisateur findByUsername(String username);
 	Utilisateur findByNomUtilisateur(String nomUtilisateur);
+	
 	List<Utilisateur> findByRole(String libelle);
+	Integer nbUserByRole(String libelle);
 }

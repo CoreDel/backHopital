@@ -13,9 +13,15 @@ public interface UtilisateurRepository extends JpaRepository<Utilisateur, Long>{
 	Utilisateur findByUsername(String username);
 	Utilisateur findByNomUtilisateur(String nomUtilisateur);
 	
+	// affiche users en fonction du role(libelle)
 	@Query(value = "SELECT * FROM utilisateur WHERE id_utilisateur IN (SELECT id_utilisateur FROM profil WHERE id_role IN (SELECT id_role FROM role WHERE libelle =?1 ))",
 			nativeQuery = true)
 	List<Utilisateur> showUserByRole(String Role);
+	
+	//nombre de users en fonction du role(libelle) 
+	@Query(value = "SELECT count(*) FROM utilisateur WHERE id_utilisateur IN (SELECT id_utilisateur FROM profil WHERE id_role IN (SELECT id_role FROM role WHERE libelle =?1 ))",
+			nativeQuery = true)
+	Integer nbUserByRole(String Role);
 	
 		
 		
