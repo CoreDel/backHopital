@@ -14,6 +14,8 @@ import com.inti.entities.Utilisateur;
 public interface FactureRepository extends JpaRepository<Facture, Long> {
 	Facture findByPrixAndType(Long prix, String type);
 	
+	//affiche facture par ordonnance (id)
+	@Query(value = "SELECT * FROM facture WHERE id_ordonnance = ?1 ", nativeQuery = true)
 	Facture findByIdOrdonnance(Long idOrdonnance);
 	
 	//affiche facture par personne (nom et prenom)
