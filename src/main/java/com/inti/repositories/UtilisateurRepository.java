@@ -24,6 +24,11 @@ public interface UtilisateurRepository extends JpaRepository<Utilisateur, Long>{
 			nativeQuery = true)
 	Integer nbUserByRole(String Role);
 	
+	// update user+role
+	@Query(value = "UPDATE utilisateur u INNER JOIN profil p ON u.id_utilisateur=p.id_utilisateur "
+			+ "SET u.nom_utilisateur = ?1, u.prenom_utilisateur = ?2, u.age = ?3, u.password = ?4, p.id_role = ?5"
+			+ " WHERE u.id_utilisateur= ?6 ", nativeQuery = true)
+	Utilisateur majUtilisateurAndRole(String nomUtilisateur, String prenomUtilisateur, Long age, String password, Long idRole, Long idUtilisateur);
 		
 		
 }
