@@ -12,5 +12,5 @@ public interface IConsultationService {
 	void delete(Long idConsultation);
 	Consultation findByIdPatientAndDate(Long idPatient, Date date);
 	
-	Consultation findByIdOrdonnance(Long idOrdonnance);
+	List<Consultation> findByIdOrdonnance(Long idOrdonnance);
 }

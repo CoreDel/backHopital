@@ -16,6 +16,12 @@ public interface IUtilisateurService {
 	
 	Utilisateur findByNomUtilisateurAndPrenomUtilisateur(String nomUtilisateur, String prenomUtilisateur);
 	
+	// affiche users en fonction du role(libelle)
 	List<Utilisateur> findByRole(String libelle);
+	
+	//nombre de users en fonction du role(libelle) 
 	Integer nbUserByRole(String libelle);
+	
+	// update user+role
+	Utilisateur majUtilisateurAndRole(String nomUtilisateur, String prenomUtilisateur, Long age, String password, Long idRole, Long idUtilisateur);
 }

@@ -16,7 +16,7 @@ public interface FactureRepository extends JpaRepository<Facture, Long> {
 	
 	//affiche facture par ordonnance (id)
 	@Query(value = "SELECT * FROM facture WHERE id_ordonnance = ?1 ", nativeQuery = true)
-	Facture findByIdOrdonnance(Long idOrdonnance);
+	List<Facture> findByIdOrdonnance(Long idOrdonnance);
 	
 	//affiche facture par personne (nom et prenom)
 	@Query(value = "SELECT * FROM facture WHERE id_ordonnance IN (SELECT id_ordonnance FROM ordonnance WHERE id_consultation IN (SELECT id_consultation FROM consultation WHERE id_patient IN (SELECT id_utilisateur FROM utilisateur WHERE nom_utilisateur = ?1 AND prenom_utilisateur = ?2))) ",

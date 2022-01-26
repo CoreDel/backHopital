@@ -115,6 +115,13 @@ public class Utilisateur implements Serializable{
 	public void setRoles(Set<Role> roles) {
 		this.roles = roles;
 	}
+	
+	public Hopital getHopitalU() {
+		return hopitalU;
+	}
+	public void setHopitalU(Hopital hopitalU) {
+		this.hopitalU = hopitalU;
+	}
 	@Override
 	public String toString() {
 		return "Utilisateur [idUtilisateur=" + idUtilisateur + ", nomUtilisateur=" + nomUtilisateur
