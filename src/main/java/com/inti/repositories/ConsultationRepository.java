@@ -14,7 +14,7 @@ public interface ConsultationRepository extends JpaRepository<Consultation, Long
 	Consultation findByIdPatientAndDate(Long idPatient, Date date);
 	
 	// affiche consultation par ordonnance(id)
-	@Query( value = "SELECT * FROM consultation WHERE id_consultation IN (SELECT id_consultation FROM ordonnance WHERE id_ordonnance = 1)",
+	@Query( value = "SELECT * FROM consultation WHERE id_consultation IN (SELECT id_consultation FROM ordonnance WHERE id_ordonnance = ?1)",
 			nativeQuery = true)
 	List<Consultation> showConsultationById(Long id);
 }

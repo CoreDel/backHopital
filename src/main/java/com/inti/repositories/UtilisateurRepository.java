@@ -30,5 +30,10 @@ public interface UtilisateurRepository extends JpaRepository<Utilisateur, Long>{
 			+ " WHERE u.id_utilisateur= ?6 ", nativeQuery = true)
 	Utilisateur majUtilisateurAndRole(String nomUtilisateur, String prenomUtilisateur, Long age, String password, Long idRole, Long idUtilisateur);
 		
+	//save user+role
+	@Query(value = "INSERT INTO utilisateur(dossier_medical,nom_utilisateur,prenom_utilisateur,age,username, password, id_hopital) "
+			+ "VALUES(?1, ?2, ?3, ?4, ?5, ?6, ?7);"
+			+ "INSERT INTO profil (id_utilisateur, id_role) VALUES (LAST_INSERT_ID(), ?8);" , nativeQuery = true)
+	Utilisateur saveUtilisateurAndRole(String dossierMedical, String nomUtilisateur, String prenomUtilisateur, Long age, String username, String password, Long idRole, Long idUtilisateur);
 		
 }

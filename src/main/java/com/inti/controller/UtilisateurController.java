@@ -77,21 +77,21 @@ public class UtilisateurController {
     }
     
     //maj utilisateur+role
-    @RequestMapping(value="utilisateurs/roles/{idU}", method=RequestMethod.PUT)
-    public Utilisateur majUtilisateurAndRole(@PathVariable("idU") Long idUtilisateur, @RequestParam(required = false) String prenom,
-    		@RequestParam(required = false) String nom,
-    		@RequestParam(required = false) Long age, 
-    		@RequestParam(required = false) String password, 
-    		@RequestParam(required = false) Long idRole) {
-    	Utilisateur currentUtilisateur = utilisateurService.findOne(idUtilisateur);
-    	currentUtilisateur.setPrenomUtilisateur(prenom);
-    	currentUtilisateur.setNomUtilisateur(nom);
-        currentUtilisateur.setPassword(password);
-        currentUtilisateur.setAge(age);
-//            currentUtilisateur.setRoles(idRole)
-        
-    	return utilisateurService.save(currentUtilisateur);
-    }
+//    @RequestMapping(value="utilisateurs/roles/{idU}", method=RequestMethod.PUT)
+//    public Utilisateur majUtilisateurAndRole(@PathVariable("idU") Long idUtilisateur, @RequestParam(required = false) String prenom,
+//    		@RequestParam(required = false) String nom,
+//    		@RequestParam(required = false) Long age, 
+//    		@RequestParam(required = false) String password, 
+//    		@RequestParam(required = false) Long idRole) {
+//    	Utilisateur currentUtilisateur = utilisateurService.findOne(idUtilisateur);
+//    	currentUtilisateur.setPrenomUtilisateur(prenom);
+//    	currentUtilisateur.setNomUtilisateur(nom);
+//        currentUtilisateur.setPassword(password);
+//        currentUtilisateur.setAge(age);
+////            currentUtilisateur.setRoles(idRole)
+//        
+//    	return utilisateurService.save(currentUtilisateur);
+//    }
 
    
     //effacer un utilisateur
