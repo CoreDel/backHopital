@@ -4,9 +4,11 @@ import java.io.Serializable;
 
 import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
+import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
 
 @Entity
-@DiscriminatorValue("dMedical")
+@DiscriminatorValue("DM")
 public class DossierMedical extends Utilisateur implements Serializable {
 	private Long numeroSecu;
 	private String antecedent;

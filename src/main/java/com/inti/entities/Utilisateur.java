@@ -17,11 +17,10 @@ import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
 import javax.persistence.DiscriminatorColumn;
 import javax.persistence.DiscriminatorType;
-import javax.persistence.DiscriminatorValue;
 
 @Entity
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
-@DiscriminatorColumn(name="type",discriminatorType=DiscriminatorType.STRING) 
+@DiscriminatorColumn(name="dossier_medical", discriminatorType = DiscriminatorType.STRING)
 public class Utilisateur implements Serializable{
 	@Id
 	@GeneratedValue (strategy = GenerationType.IDENTITY)
@@ -43,11 +42,7 @@ public class Utilisateur implements Serializable{
     @JoinColumn(name = "idHopital")
     private Hopital hopitalU;
     
-    //many to many rendez-vous
-    @ManyToMany(fetch = FetchType.EAGER)
-    @JoinTable(name = "RDV", joinColumns = @JoinColumn (name = "id_utilisateur", referencedColumnName = "idUtilisateur"), 
-    inverseJoinColumns = @JoinColumn (name = "id_consultation", referencedColumnName ="idConsultation"))
-    private Set<Consultation> consultations = new HashSet<>();
+  
     
     public Utilisateur() {
 	}
@@ -114,24 +109,24 @@ public class Utilisateur implements Serializable{
 		this.age = age;
 	}
 	
-	public Set<Consultation> getConsultations() {
-		return consultations;
-	}
-	public void setConsultations(Set<Consultation> consultations) {
-		this.consultations = consultations;
-	}
-	
 	public Set<Role> getRoles() {
 		return roles;
 	}
 	public void setRoles(Set<Role> roles) {
 		this.roles = roles;
 	}
+	
+	public Hopital getHopitalU() {
+		return hopitalU;
+	}
+	public void setHopitalU(Hopital hopitalU) {
+		this.hopitalU = hopitalU;
+	}
 	@Override
 	public String toString() {
 		return "Utilisateur [idUtilisateur=" + idUtilisateur + ", nomUtilisateur=" + nomUtilisateur
 				+ ", prenomUtilisateur=" + prenomUtilisateur + ", username=" + username + ", password=" + password
-				+ ", age=" + age + ", consultations=" + consultations + "]";
+				+ ", age=" + age + "]";
 	}
 	
 }

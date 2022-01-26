@@ -37,10 +37,13 @@ public class MedicamentService implements IMedicamentService {
 	}
 
 	@Override
-	public Medicament findByNomMedicament(String nomMedicament) {
+	public List<Medicament> findByNomMedicament(String nomMedicament) {
 		return medicamentRepository.findByNomMedicament(nomMedicament);
 	}
-	
-	
+
+	@Override
+	public List<Medicament> findByIdOrdonnance(Long idOrdonnance) {
+		return medicamentRepository.showMedocById(idOrdonnance);
+	}
 
 }

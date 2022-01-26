@@ -34,10 +34,22 @@ public class FactureController {
 		return factureService.findOne(idFacture);
 	}
 	
-	//findBy
-	@GetMapping(value = "/factures/{idF}/{type}")
-	public Facture findByPrixAndType(@PathVariable("idF") Long prix,@PathVariable("type") String type) {
+	//findBy (prix et type)
+	@GetMapping(value = "/factures/{prix}/{type}")
+	public Facture findByPrixAndType(@PathVariable("prix") Long prix,@PathVariable("type") String type) {
 		return factureService.findByPrixAndType(prix, type);
+	}
+	
+	//findByNomUtilisateurAndPrenomUtilisateur
+	@GetMapping(value = "/factures/utilisateurs/{nom}/{prenom}")
+	public List<Facture> findByNomUtilisateurAndPrenomUtilisateur(@PathVariable("nom") String nomUtilisateur,@PathVariable("prenom") String prenomUtilisateur) {
+		return factureService.findByNomUtilisateurAndPrenomUtilisateur(nomUtilisateur, prenomUtilisateur);
+	}
+	
+	//findBy (idOrdonnance)
+	@GetMapping(value = "/ordonnances/factures/{idO}")
+	public List<Facture> findByIdOrdonnance(@PathVariable("idO") Long idOrdonnance) {
+		return factureService.findByIdOrdonnance(idOrdonnance);
 	}
 	
 	//save

@@ -43,4 +43,9 @@ public class ConsultationService implements IConsultationService {
 	public Consultation findByIdPatientAndDate(Long idPatient, Date date) {
 		return consultationRepository.findByIdPatientAndDate(idPatient, date);
 	}
+
+	@Override
+	public List<Consultation> findByIdOrdonnance(Long idOrdonnance) {
+		return consultationRepository.showConsultationById(idOrdonnance);
+	}
 }

@@ -1,6 +1,7 @@
 package com.inti.entities;
 
 import java.io.Serializable;
+
 import java.util.HashSet;
 import java.util.Set;
 
@@ -13,6 +14,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.OneToOne;
+import javax.persistence.Transient;
 
 @Entity
 public class Ordonnance implements Serializable{
@@ -22,8 +24,10 @@ public class Ordonnance implements Serializable{
 	private String soinPrescrit;
 	// Relation OneToOne avec facture
 	@OneToOne(mappedBy = "ordonnance")
+	@Transient
 	private Facture facture;
 	@OneToOne
+	@JoinColumn(name="id_consultation")
 	private Consultation consultation;
 	// Relation ManyToMany avec medicament
 	@ManyToMany(fetch = FetchType.EAGER)

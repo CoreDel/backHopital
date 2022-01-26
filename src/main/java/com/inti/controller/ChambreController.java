@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.inti.entities.Chambre;
+import com.inti.entities.Medicament;
 import com.inti.service.interfaces.IChambreService;
 
 @RestController
@@ -28,10 +29,10 @@ public class ChambreController {
 		return chambreService.findAll();
 	}
 
-	@RequestMapping(value = "chambres/{idC}", method = RequestMethod.GET)
+	/*@RequestMapping(value = "chambres/{idC}", method = RequestMethod.GET)
 	public Chambre findOne(@PathVariable("idC") Long idChambre) {
 		return chambreService.findOne(idChambre);
-	}
+	}*/
 
 	@PostMapping("/chambres")
 	public Chambre saveChambre(@RequestBody Chambre chambre) {
@@ -51,8 +52,21 @@ public class ChambreController {
 		chambreService.delete(idChambre);
 	}
 
-	/*@GetMapping("/chambresDisponibles")
+	@GetMapping("/chambresDisponibles")
 	public List<Chambre> findDispoChambre() {
 		return chambreService.findDispoChambre();
-	}*/
+	}
+	
+	@GetMapping("/nombreChambresDisponibles")
+	public Integer nombreDispoChambre() {
+		return chambreService.nombreDispoChambre();
+	}
+	@GetMapping(value = "/chambres/{numChambre}")
+	public List<Chambre> findByNumChambre(@PathVariable("numChambre") Long numChambre) {
+		List<Chambre> chambres = chambreService.findByNumChambre(numChambre);
+		return chambres;
+	}
+	
+	
+	
 }

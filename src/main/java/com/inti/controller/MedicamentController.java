@@ -27,14 +27,21 @@ public class MedicamentController {
 		return medicamentService.findAll();
 	}
 	
-	@GetMapping(value = "/medicaments/{idM}")
+	/*@GetMapping(value = "/medicaments/{idM}")
 	public Medicament findOne(@PathVariable("idM") Long idMedicament) {
 		return medicamentService.findOne(idMedicament);
-	}
+	}*/
 	
 	@GetMapping(value = "/medicaments/{nomMedicament}")
-	public Medicament findByNomMedicament(@PathVariable("nomMedicament") String nomMedicament) {
-		return medicamentService.findByNomMedicament(nomMedicament);
+	public List<Medicament> findByNomMedicament(@PathVariable("nomMedicament") String nomMedicament) {
+		List<Medicament> medicaments = medicamentService.findByNomMedicament(nomMedicament);
+		return medicaments;
+	}
+	
+	@GetMapping(value = "/ordonnances/medicaments/{id_Ord}")
+	public List<Medicament> findByIdOrdonnance(@PathVariable("id_Ord") Long idOrdonnance) {
+		List<Medicament> medicaments = medicamentService.findByIdOrdonnance(idOrdonnance);
+		return medicaments;
 	}
 	
 	@PostMapping("/medicaments")

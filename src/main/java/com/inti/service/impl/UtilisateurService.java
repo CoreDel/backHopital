@@ -41,14 +41,29 @@ public class UtilisateurService implements IUtilisateurService {
 
 	@Override
 	public Utilisateur findByUsername(String username) {
-		// TODO Auto-generated method stub
 		return utilisateurRepository.findByUsername(username);
 	}
 
 	@Override
-	public Utilisateur findByNomUtilisateur(String nomUtilisateur) {
-		// TODO Auto-generated method stub
-		return utilisateurRepository.findByNomUtilisateur( nomUtilisateur);
+	public Utilisateur findByNomUtilisateurAndPrenomUtilisateur(String nomUtilisateur, String prenomUtilisateur) {
+		return utilisateurRepository.findByNomUtilisateurAndPrenomUtilisateur(nomUtilisateur, prenomUtilisateur);
 	}
+
+	@Override
+	public List<Utilisateur> findByRole(String libelle) {
+		return utilisateurRepository.showUserByRole(libelle);
+	}
+
+	@Override
+	public Integer nbUserByRole(String libelle) {
+		return utilisateurRepository.nbUserByRole(libelle);
+	}
+
+	@Override
+	public Utilisateur majUtilisateurAndRole(String nomUtilisateur, String prenomUtilisateur, Long age, String password,
+			Long idRole, Long idUtilisateur) {
+		return utilisateurRepository.majUtilisateurAndRole(nomUtilisateur, prenomUtilisateur, age, password, idRole, idUtilisateur);
+	}
+
 
 }

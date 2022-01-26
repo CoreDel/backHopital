@@ -11,6 +11,17 @@ public interface IUtilisateurService {
 	Utilisateur findOne (Long idUtilisateur);
 	Utilisateur save(Utilisateur utilisateur);
 	void delete(Long idUtilisateur);
+	
 	Utilisateur findByUsername(String username);
-	Utilisateur findByNomUtilisateur(String nomUtilisateur);
+	
+	Utilisateur findByNomUtilisateurAndPrenomUtilisateur(String nomUtilisateur, String prenomUtilisateur);
+	
+	// affiche users en fonction du role(libelle)
+	List<Utilisateur> findByRole(String libelle);
+	
+	//nombre de users en fonction du role(libelle) 
+	Integer nbUserByRole(String libelle);
+	
+	// update user+role
+	Utilisateur majUtilisateurAndRole(String nomUtilisateur, String prenomUtilisateur, Long age, String password, Long idRole, Long idUtilisateur);
 }
