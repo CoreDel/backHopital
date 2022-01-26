@@ -61,6 +61,21 @@ public class UtilisateurController {
     	return utilisateurService.save(utilisateur); 
       }
     
+  //sauvegarder un utilisateur+role
+//    @RequestMapping(value="utilisateurs/saveRoles", method=RequestMethod.POST)
+//    public void saveUtilisateurAndRole(
+//    		@RequestParam(required = false) String dossierMedical,
+//    		@RequestParam(required = false) String prenom,
+//    		@RequestParam(required = false) String nom,
+//    		@RequestParam(required = false) Long age, 
+//    		@RequestParam(required = false) String username,
+//    		@RequestParam(required = false) String password, 
+//    		@RequestParam(required = false) Long idRole) {
+//   	
+//      }
+    
+  
+    
 
     //mettre à jour un utilisateur
     @RequestMapping(value="utilisateurs/{idU}", method=RequestMethod.PUT)
@@ -77,7 +92,7 @@ public class UtilisateurController {
     }
     
     //maj utilisateur+role
-//    @RequestMapping(value="utilisateurs/roles/{idU}", method=RequestMethod.PUT)
+//    @RequestMapping(value="utilisateurs/updatRoles/{idU}", method=RequestMethod.PUT)
 //    public Utilisateur majUtilisateurAndRole(@PathVariable("idU") Long idUtilisateur, @RequestParam(required = false) String prenom,
 //    		@RequestParam(required = false) String nom,
 //    		@RequestParam(required = false) Long age, 
