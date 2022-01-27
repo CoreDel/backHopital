@@ -1,10 +1,11 @@
 package com.inti.model;
 
-/*import java.util.Collection;
+import java.util.Collection;
 import java.util.Set;
 
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
+
 import com.inti.entities.Utilisateur;
 
 public class UtilisateurDetail implements UserDetails {
@@ -64,4 +65,4 @@ public class UtilisateurDetail implements UserDetails {
 		return true;
 	}
 
-}*/
+}

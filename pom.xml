@@ -27,14 +27,14 @@
 			<artifactId>spring-boot-starter-web</artifactId>
 		</dependency>
 		<!-- Spring Security BAA -->
-		<!--  <dependency>
+		<dependency>
 			<groupId>org.springframework.security</groupId>
 			<artifactId>spring-security-core</artifactId>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-security</artifactId>
-		</dependency>-->
+		</dependency>
 		<!-- Spring Security BAA End -->
 		<dependency>
 			<groupId>mysql</groupId>

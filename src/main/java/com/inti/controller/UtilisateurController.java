@@ -3,6 +3,7 @@ package com.inti.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 //import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -21,8 +22,8 @@ public class UtilisateurController {
     @Autowired
     IUtilisateurService utilisateurService;
     
-   // @Autowired
-   // PasswordEncoder passwordEncoder;
+   @Autowired
+   PasswordEncoder passwordEncoder;
     
     //find all
     @RequestMapping(value="utilisateurs", method = RequestMethod.GET)
@@ -57,8 +58,10 @@ public class UtilisateurController {
     
     //sauvegarder un utilisateur
     @RequestMapping(value="utilisateurs", method=RequestMethod.POST)
-    public Utilisateur saveutilisateur(@RequestBody Utilisateur utilisateur) { 
-    	return utilisateurService.save(utilisateur); 
+    public Utilisateur saveutilisateur(@RequestBody Utilisateur utilisateur) {
+    	Utilisateur currentUser=new Utilisateur(utilisateur.getNomUtilisateur(),utilisateur.getPrenomUtilisateur(),
+				utilisateur.getUsername(),passwordEncoder.encode(utilisateur.getPassword()), utilisateur.getAge());
+    	return utilisateurService.save(currentUser); 
       }
     
 
