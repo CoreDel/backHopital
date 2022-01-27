@@ -27,10 +27,10 @@ public class MedicamentController {
 		return medicamentService.findAll();
 	}
 	
-	/*@GetMapping(value = "/medicaments/{idM}")
+	@GetMapping(value = "/medicaments/id/{idM}")
 	public Medicament findOne(@PathVariable("idM") Long idMedicament) {
 		return medicamentService.findOne(idMedicament);
-	}*/
+	}
 	
 	@GetMapping(value = "/medicaments/{nomMedicament}")
 	public List<Medicament> findByNomMedicament(@PathVariable("nomMedicament") String nomMedicament) {
@@ -52,19 +52,18 @@ public class MedicamentController {
 	@PutMapping("/medicaments/{idM}")
 	public Medicament updateMedicament(@PathVariable("idM") Long idMedicament, @RequestBody Medicament medicament) {
 		Medicament currentMedicament = medicamentService.findOne(idMedicament);
-		currentMedicament.setNomMedicament(medicament.getNomMedicament());
-		currentMedicament.setDescMedicament(medicament.getDescMedicament());
-		currentMedicament.setQuantMedicament(medicament.getQuantMedicament());
+		if(medicament.getNomMedicament() !=null) {
+			currentMedicament.setNomMedicament(medicament.getNomMedicament());
+		}
+		if(medicament.getDescMedicament() !=null) {
+			currentMedicament.setDescMedicament(medicament.getDescMedicament());
+		}
+		if(medicament.getQuantMedicament() !=null) {
+			currentMedicament.setQuantMedicament(medicament.getQuantMedicament());
+		}
 		return medicamentService.save(currentMedicament);
 	}
 	
-	// update quantite 
-//	@PutMapping("/medicaments/updateQuantite/{idM}")
-//	public Medicament modifyQuantiteMedoc(@PathVariable("idM") Long idMedicament, @RequestBody Long quantiteMedicament) {
-//		Medicament currentMedicament = medicamentService.findOne(idMedicament);
-//		currentMedicament.setQuantMedicament(quantiteMedicament);
-//		return medicamentService.save(currentMedicament);
-//	}
 	
 	@DeleteMapping("/medicaments/{idM}")
 	public void deleteMedicament(@PathVariable("idM") Long idMedicament) {

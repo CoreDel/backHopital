@@ -23,9 +23,9 @@ public interface IUtilisateurService {
 	Integer nbUserByRole(String libelle);
 	
 	// update user+role
-	void majUtilisateurAndRole(String nomUtilisateur, String prenomUtilisateur, Long age, String password, Long idRole, Long idUtilisateur);
+//	void majUtilisateurAndRole(String nomUtilisateur, String prenomUtilisateur, Long age, String password, Long idRole, Long idUtilisateur);
 
 	//save user+role
-	void saveUtilisateurAndRolesaveUtilisateurAndRole(String dossierMedical, String nomUtilisateur, String prenomUtilisateur, Long age, String username, String password, Long idRole);
+//	void saveUtilisateurAndRolesaveUtilisateurAndRole(String dossierMedical, String nomUtilisateur, String prenomUtilisateur, Long age, String username, String password, Long idRole);
 
 }

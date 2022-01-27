@@ -45,9 +45,15 @@ public class OrdonnanceController {
 	@PutMapping("/ordonnances/{idO}")
 	public Ordonnance updateOrdonnance(@PathVariable("idO") Long idOrdonnance, @RequestBody Ordonnance ordonnance) {
 		Ordonnance currentOrdonnance = ordonnanceService.findOne(idOrdonnance);
-		currentOrdonnance.setSoinPrescrit(ordonnance.getSoinPrescrit());
-		currentOrdonnance.setFacture(ordonnance.getFacture());
-		currentOrdonnance.setMedicamentPrescrit(ordonnance.getMedicamentPrescrit());
+		if(ordonnance.getSoinPrescrit() != null)	{
+			currentOrdonnance.setSoinPrescrit(ordonnance.getSoinPrescrit());
+		}
+		if(ordonnance.getFacture() != null)	{
+			currentOrdonnance.setFacture(ordonnance.getFacture());
+		}
+		if(ordonnance.getMedicamentPrescrit() != null)	{
+			currentOrdonnance.setMedicamentPrescrit(ordonnance.getMedicamentPrescrit());
+		}
 		return ordonnanceService.save(currentOrdonnance);
 	}
 	

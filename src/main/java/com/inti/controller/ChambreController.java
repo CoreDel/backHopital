@@ -42,8 +42,12 @@ public class ChambreController {
 	@PutMapping("/chambres/{idC}")
 	public Chambre updateChambre(@PathVariable("idC") Long idChambre, @RequestBody Chambre chambre) {
 		Chambre currentChambre = chambreService.findOne(idChambre);
-		currentChambre.setNumChambre(chambre.getNumChambre());
-		currentChambre.setDispoChambre(chambre.getDispoChambre());
+		if(chambre.getNumChambre() !=null) {
+			currentChambre.setNumChambre(chambre.getNumChambre());
+		}
+		if(chambre.getNumChambre() !=null) {
+			currentChambre.setDispoChambre(chambre.getDispoChambre());
+		}
 		return chambreService.save(currentChambre);
 	}
 

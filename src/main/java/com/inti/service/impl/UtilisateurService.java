@@ -59,17 +59,17 @@ public class UtilisateurService implements IUtilisateurService {
 		return utilisateurRepository.nbUserByRole(libelle);
 	}
 
-	@Override
-	public void majUtilisateurAndRole(String nomUtilisateur, String prenomUtilisateur, Long age, String password,
-			Long idRole, Long idUtilisateur) {
-		utilisateurRepository.majUtilisateurAndRole(nomUtilisateur, prenomUtilisateur, age, password, idRole, idUtilisateur);
-	}
+//	@Override
+//	public void majUtilisateurAndRole(String nomUtilisateur, String prenomUtilisateur, Long age, String password,
+//			Long idRole, Long idUtilisateur) {
+//		utilisateurRepository.majUtilisateurAndRole(nomUtilisateur, prenomUtilisateur, age, password, idRole, idUtilisateur);
+//	}
 
-	@Override
-	public void saveUtilisateurAndRolesaveUtilisateurAndRole(String dossierMedical, String nomUtilisateur,
-			String prenomUtilisateur, Long age, String username, String password, Long idRole) {
-		utilisateurRepository.saveUtilisateurAndRole(dossierMedical, nomUtilisateur, prenomUtilisateur, age, username, password, idRole);
-	}
+//	@Override
+//	public void saveUtilisateurAndRolesaveUtilisateurAndRole(String dossierMedical, String nomUtilisateur,
+//			String prenomUtilisateur, Long age, String username, String password, Long idRole) {
+//		utilisateurRepository.saveUtilisateurAndRole(dossierMedical, nomUtilisateur, prenomUtilisateur, age, username, password, idRole);
+//	}
 
 
 	

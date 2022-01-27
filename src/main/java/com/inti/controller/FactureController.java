@@ -62,9 +62,15 @@ public class FactureController {
 	@PutMapping(value="/factures/{idF}")
 	public Facture updateFacture(@PathVariable("idF") Long idFacture, @RequestBody Facture facture) {
 		Facture currentFacture=factureService.findOne(idFacture); 
-		currentFacture.setPrix(facture.getPrix());	
-		currentFacture.setType(facture.getType());
-		currentFacture.setDescription(facture.getDescription());
+		if (facture.getPrix() != 0)	{
+			currentFacture.setPrix(facture.getPrix());	
+		}
+		if (facture.getType() != null)	{
+			currentFacture.setType(facture.getType());
+		}
+		if (facture.getDescription() != null)	{
+			currentFacture.setDescription(facture.getDescription());
+		}
 		return factureService.save(currentFacture);	
 	}
 	
