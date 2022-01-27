@@ -15,6 +15,7 @@ import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
+import javax.persistence.Column;
 import javax.persistence.DiscriminatorColumn;
 import javax.persistence.DiscriminatorType;
 
@@ -27,9 +28,11 @@ public class Utilisateur implements Serializable{
 	private Long idUtilisateur;
 	private String nomUtilisateur;
     private String prenomUtilisateur;
+    @Column(unique = true)
     private String username;
     private String password;
     private Long age;
+    private boolean enabled = true;
     
     //many to many role
     @ManyToMany(fetch = FetchType.EAGER)
@@ -122,11 +125,19 @@ public class Utilisateur implements Serializable{
 	public void setHopitalU(Hopital hopitalU) {
 		this.hopitalU = hopitalU;
 	}
+	
+	public boolean isEnabled() {
+		return enabled;
+	}
+	public void setEnabled(boolean enabled) {
+		this.enabled = enabled;
+	}
+	
 	@Override
 	public String toString() {
 		return "Utilisateur [idUtilisateur=" + idUtilisateur + ", nomUtilisateur=" + nomUtilisateur
 				+ ", prenomUtilisateur=" + prenomUtilisateur + ", username=" + username + ", password=" + password
-				+ ", age=" + age + "]";
+				+ ", age=" + age + ", enabled=" + enabled + ", roles=" + roles + ", hopitalU=" + hopitalU + "]";
 	}
 	
 }
