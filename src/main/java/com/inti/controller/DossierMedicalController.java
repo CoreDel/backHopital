@@ -51,7 +51,7 @@ public class DossierMedicalController {
     public DossierMedical updateDossierMedical(@PathVariable("iddm") Long numeroSecu,
             @RequestBody DossierMedical dossierMedical) {
         DossierMedical currentDossier = dossierMedicalService.findOne(numeroSecu);
-        if(dossierMedical.getNumeroSecu() != 0)  {                             
+        if(dossierMedical.getNumeroSecu() != null)  {                             
         currentDossier.setNumeroSecu(dossierMedical.getNumeroSecu());
         }
         if(dossierMedical.getAntecedent() != null)  {

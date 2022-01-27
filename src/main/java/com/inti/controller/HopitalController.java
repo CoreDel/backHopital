@@ -44,7 +44,7 @@ public class HopitalController {
 		if(hopital.getNomHopital() != null)	{
 			currentHopital.setNomHopital(hopital.getNomHopital());
 		}
-		if(hopital.getNumTelHopital() != 0)	{
+		if(hopital.getNumTelHopital() != null)	{
 			currentHopital.setNumTelHopital(hopital.getNumTelHopital());
 		}
 		if(hopital.getAdresse() != null)	{
