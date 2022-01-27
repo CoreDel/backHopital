@@ -94,8 +94,12 @@ public class UtilisateurController {
         if(utilisateur.getPassword() != null) {      
 	        currentUtilisateur.setPassword(utilisateur.getPassword());
         }
-        if(utilisateur.getAge() != 0) {      
+        if(utilisateur.getAge() != null) {      
 	        currentUtilisateur.setAge(utilisateur.getAge());
+        }
+        if(utilisateur.getRoles()!=null) 
+        {
+            currentUtilisateur.setRoles(utilisateur.getRoles());
         }
         return utilisateurService.save(currentUtilisateur);
     }
