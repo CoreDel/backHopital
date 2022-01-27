@@ -45,7 +45,7 @@ public class ChambreController {
 		if(chambre.getNumChambre() !=null) {
 			currentChambre.setNumChambre(chambre.getNumChambre());
 		}
-		if(chambre.getNumChambre() !=null) {
+		if(chambre.getDispoChambre() !=null) {
 			currentChambre.setDispoChambre(chambre.getDispoChambre());
 		}
 		return chambreService.save(currentChambre);
