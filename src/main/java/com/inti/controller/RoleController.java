@@ -50,7 +50,9 @@ public class RoleController {
 	@PutMapping(value="/roles/{idR}")
 	public Role updateRole(@PathVariable("idR") Long idRole, @RequestBody Role role) {
 		Role currentRole=roleService.findOne(idRole); 
-		currentRole.setLibelle(role.getLibelle());	
+		if(role.getLibelle() != null) {
+			currentRole.setLibelle(role.getLibelle());	
+		}
 		return roleService.save(currentRole);	
 	}
 	

@@ -51,11 +51,18 @@ public class DossierMedicalController {
     public DossierMedical updateDossierMedical(@PathVariable("iddm") Long numeroSecu,
             @RequestBody DossierMedical dossierMedical) {
         DossierMedical currentDossier = dossierMedicalService.findOne(numeroSecu);
-                                                                                
+        if(dossierMedical.getNumeroSecu() != 0)  {                             
         currentDossier.setNumeroSecu(dossierMedical.getNumeroSecu());
+        }
+        if(dossierMedical.getAntecedent() != null)  {
         currentDossier.setAntecedent(dossierMedical.getAntecedent());
+        }
+        if(dossierMedical.getTraitement() != null)  {
         currentDossier.setTraitement(dossierMedical.getTraitement());
+        }
+        if(dossierMedical.getOperation() != null)  	{
         currentDossier.setOperation(dossierMedical.getOperation());
+        }
         return dossierMedicalService.save(currentDossier);
     }
 		

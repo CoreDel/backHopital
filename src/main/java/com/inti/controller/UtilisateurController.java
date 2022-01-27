@@ -82,12 +82,21 @@ public class UtilisateurController {
     public Utilisateur updateUtilisateur(@PathVariable("idU") Long idUtilisateur,
     		@RequestBody Utilisateur utilisateur) {
         Utilisateur currentUtilisateur = utilisateurService.findOne(idUtilisateur);
-                                                                                
+        if(utilisateur.getNomUtilisateur() != null) {              
         currentUtilisateur.setNomUtilisateur(utilisateur.getNomUtilisateur());
-        currentUtilisateur.setPrenomUtilisateur(utilisateur.getPrenomUtilisateur());
-        currentUtilisateur.setUsername(utilisateur.getUsername());
-        currentUtilisateur.setPassword(utilisateur.getPassword());
-        currentUtilisateur.setAge(utilisateur.getAge());
+        }
+        if(utilisateur.getPrenomUtilisateur() != null) {      
+	        currentUtilisateur.setPrenomUtilisateur(utilisateur.getPrenomUtilisateur());
+        }
+        if(utilisateur.getUsername() != null) {      
+	        currentUtilisateur.setUsername(utilisateur.getUsername());
+        }
+        if(utilisateur.getPassword() != null) {      
+	        currentUtilisateur.setPassword(utilisateur.getPassword());
+        }
+        if(utilisateur.getAge() != 0) {      
+	        currentUtilisateur.setAge(utilisateur.getAge());
+        }
         return utilisateurService.save(currentUtilisateur);
     }
     

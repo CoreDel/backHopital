@@ -41,9 +41,15 @@ public class HopitalController {
 	@PutMapping("/hopital/{idH}")
 	public Hopital updateHopital(@PathVariable("idH") Long idHopital, @RequestBody Hopital hopital) {
 		Hopital currentHopital = hopitalService.findOne(idHopital);
-		currentHopital.setNomHopital(hopital.getNomHopital());
-		currentHopital.setNumTelHopital(hopital.getNumTelHopital());
-		currentHopital.setAdresse(hopital.getAdresse());
+		if(hopital.getNomHopital() != null)	{
+			currentHopital.setNomHopital(hopital.getNomHopital());
+		}
+		if(hopital.getNumTelHopital() != 0)	{
+			currentHopital.setNumTelHopital(hopital.getNumTelHopital());
+		}
+		if(hopital.getAdresse() != null)	{
+			currentHopital.setAdresse(hopital.getAdresse());
+		}
 		return hopitalService.save(currentHopital);
 	}
 

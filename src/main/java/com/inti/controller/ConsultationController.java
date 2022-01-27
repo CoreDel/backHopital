@@ -81,13 +81,20 @@ public class ConsultationController {
     @RequestMapping(value="consultations/{idc}", method=RequestMethod.PUT)
     public Consultation updateConsultation(@PathVariable("idc") Long idConsultation,
             @RequestBody Consultation consultation) {
-        Consultation currentConsultation = consultationService.findOne(idConsultation);                                                                              
-        currentConsultation.setIdConsultation(consultation.getIdConsultation());
-        currentConsultation.setIdPatient(consultation.getIdPatient());
-        currentConsultation.setIdMedecin(consultation.getIdMedecin());
-        currentConsultation.setMotifConsultation(consultation.getMotifConsultation());
-        currentConsultation.setDate(consultation.getDate());
-        
+        Consultation currentConsultation = consultationService.findOne(idConsultation); 
+        if(consultation.getIdPatient() != 0) {
+        	currentConsultation.setIdPatient(consultation.getIdPatient());
+        }
+        if(consultation.getIdMedecin() != 0) {
+            currentConsultation.setIdMedecin(consultation.getIdMedecin());
+        }
+        if(consultation.getMotifConsultation() != null) {
+            currentConsultation.setMotifConsultation(consultation.getMotifConsultation());
+        }
+        if(consultation.getDate() != null) {
+        	currentConsultation.setDate(consultation.getDate());
+        }
+         
         return consultationService.save(currentConsultation);
     }
 	
