@@ -21,13 +21,13 @@ public class Chambre implements Serializable {
 	@JoinColumn(name = "id_hopital")
 	private Hopital hopital;
 
-	private Boolean dispoChambre;
+	private String dispoChambre;
 
 	public Chambre() {
 
 	}
 
-	public Chambre(Long numChambre, Boolean dispoChambre) {
+	public Chambre(Long numChambre, String dispoChambre) {
 
 		this.numChambre = numChambre;
 		this.dispoChambre = dispoChambre;
@@ -62,11 +62,11 @@ public class Chambre implements Serializable {
 		this.hopital = hopital;
 	}
 
-	public Boolean getDispoChambre() {
+	public String getDispoChambre() {
 		return dispoChambre;
 	}
 
-	public void setDispoChambre(Boolean dispoChambre) {
+	public void setDispoChambre(String dispoChambre) {
 		this.dispoChambre = dispoChambre;
 	}
 
