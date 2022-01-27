@@ -19,7 +19,7 @@ public interface ChambreRepository extends JpaRepository<Chambre, Long>{
 	List<Chambre> findDispoChambre();
 	
 	//nombre de chambres disponibles
-	@Query(value = "SELECT count(*) FROM chambre WHERE dispo_chambre = 1 ",
+	@Query(value = "SELECT count(*) FROM chambre WHERE dispo_chambre = 'disponible' ",
 			nativeQuery = true)
 	Integer nombreDispoChambre();
 }
