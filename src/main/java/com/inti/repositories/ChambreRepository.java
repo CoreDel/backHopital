@@ -14,7 +14,7 @@ public interface ChambreRepository extends JpaRepository<Chambre, Long>{
 	List<Chambre> findBynumChambre(Long numChambre);
 	
 	//affiche toutes les chambres disponibles
-	@Query(value = "SELECT * FROM chambre WHERE dispo_chambre = 1 ",
+	@Query(value = "SELECT * FROM chambre WHERE dispo_chambre = 'disponible' ",
 			nativeQuery = true)
 	List<Chambre> findDispoChambre();
 	
