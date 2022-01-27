@@ -59,4 +59,11 @@ public class UtilisateurService implements IUtilisateurService {
 		return utilisateurRepository.nbUserByRole(libelle);
 	}
 
+	@Override
+	public Utilisateur majUtilisateurAndRole(String nomUtilisateur, String prenomUtilisateur, Long age, String password,
+			Long idRole, Long idUtilisateur) {
+		return utilisateurRepository.majUtilisateurAndRole(nomUtilisateur, prenomUtilisateur, age, password, idRole, idUtilisateur);
+	}
+
+
 }

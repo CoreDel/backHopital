@@ -17,5 +17,5 @@ public interface IConsultationService {
 	
 	Consultation findByIdPatientAndDate(Long idPatient, Date date);
 	
-	Consultation findByIdOrdonnance(Long idOrdonnance);
+	List<Consultation> findByIdOrdonnance(Long idOrdonnance);
 }

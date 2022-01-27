@@ -13,5 +13,5 @@ public interface IFactureService {
 	
 	List<Facture> findByNomUtilisateurAndPrenomUtilisateur(String nomUtilisateur, String prenomUtilisateur);
 	
-	Facture findByIdOrdonnance(Long idOrdonnance);
+	List<Facture> findByIdOrdonnance(Long idOrdonnance);
 }

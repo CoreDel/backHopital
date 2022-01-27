@@ -50,7 +50,7 @@ public class FactureService implements IFactureService{
 	}
 
 	@Override
-	public Facture findByIdOrdonnance(Long idOrdonnance) {
+	public List<Facture> findByIdOrdonnance(Long idOrdonnance) {
 		return factureRepository.findByIdOrdonnance(idOrdonnance);
 	}
 

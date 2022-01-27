@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.inti.entities.Utilisateur;
@@ -64,7 +65,7 @@ public class UtilisateurController {
     //mettre à jour un utilisateur
     @RequestMapping(value="utilisateurs/{idU}", method=RequestMethod.PUT)
     public Utilisateur updateUtilisateur(@PathVariable("idU") Long idUtilisateur,
-            @RequestBody Utilisateur utilisateur) {
+    		@RequestBody Utilisateur utilisateur) {
         Utilisateur currentUtilisateur = utilisateurService.findOne(idUtilisateur);
                                                                                 
         currentUtilisateur.setNomUtilisateur(utilisateur.getNomUtilisateur());
@@ -73,9 +74,26 @@ public class UtilisateurController {
         currentUtilisateur.setPassword(utilisateur.getPassword());
         currentUtilisateur.setAge(utilisateur.getAge());
         return utilisateurService.save(currentUtilisateur);
-
     }
     
+    //maj utilisateur+role
+//    @RequestMapping(value="utilisateurs/roles/{idU}", method=RequestMethod.PUT)
+//    public Utilisateur majUtilisateurAndRole(@PathVariable("idU") Long idUtilisateur, @RequestParam(required = false) String prenom,
+//    		@RequestParam(required = false) String nom,
+//    		@RequestParam(required = false) Long age, 
+//    		@RequestParam(required = false) String password, 
+//    		@RequestParam(required = false) Long idRole) {
+//    	Utilisateur currentUtilisateur = utilisateurService.findOne(idUtilisateur);
+//    	currentUtilisateur.setPrenomUtilisateur(prenom);
+//    	currentUtilisateur.setNomUtilisateur(nom);
+//        currentUtilisateur.setPassword(password);
+//        currentUtilisateur.setAge(age);
+////            currentUtilisateur.setRoles(idRole)
+//        
+//    	return utilisateurService.save(currentUtilisateur);
+//    }
+
+   
     //effacer un utilisateur
     @RequestMapping(value = "utilisateurs/{idUtilisateur}", method = RequestMethod.DELETE)
     public void deleteUtilisateur(@PathVariable("idUtilisateur") Long idUtilisateur) {

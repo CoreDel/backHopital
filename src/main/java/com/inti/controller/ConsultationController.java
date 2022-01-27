@@ -35,8 +35,13 @@ public class ConsultationController {
 	}
 	
 	//findBy (idOrdonnance)
+<<<<<<< HEAD
 	@GetMapping(value="/ordonnances/consultations/{idO}")
 	public Consultation findByIdOrdonnance(@PathVariable("idO") Long idOrdonnance) {
+=======
+	@RequestMapping(value="ordonnances/consultations/{idO}", method = RequestMethod.GET)
+	public List<Consultation> findByIdOrdonnance(@PathVariable("idO") Long idOrdonnance) {
+>>>>>>> cfb36f2377753fb399c4e8e0e4ac1c6387bd588a
 		return consultationService.findByIdOrdonnance(idOrdonnance);
 	}
 	
