@@ -14,6 +14,7 @@ import com.inti.entities.Utilisateur;
 @Repository
 public interface OrdonnanceRepository extends JpaRepository<Ordonnance, Long>{
 	
+	//affiche facture par personne (nom et prenom)
 	@Query(value = "SELECT * FROM ordonnance WHERE id_consultation IN (SELECT id_consultation FROM consultation WHERE id_patient IN (SELECT id_utilisateur FROM utilisateur WHERE nom_utilisateur = ?1 AND prenom_utilisateur = ?2));",
 			nativeQuery = true)
 	List<Ordonnance> showOrdonnanceByNomAndPrenom(String nom, String prenom);

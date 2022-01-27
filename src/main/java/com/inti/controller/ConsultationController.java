@@ -37,11 +37,17 @@ public class ConsultationController {
 	}
 	
 	//findBy (idOrdonnance)
-
 	@RequestMapping(value="ordonnances/consultations/{idO}", method = RequestMethod.GET)
 	public List<Consultation> findByIdOrdonnance(@PathVariable("idO") Long idOrdonnance) {
 		return consultationService.findByIdOrdonnance(idOrdonnance);
 	}
+	
+	//find by username patient
+	@RequestMapping(value="ordonnances/consultationsPatient/{username}", method = RequestMethod.GET)
+	public List<Consultation> showConsultationByUsernamePatient(@PathVariable("username") String usernamePatient) {
+		return consultationService.showConsultationByUsernamePatient(usernamePatient);
+	}
+		
 	
 	//sauvegarder
 	@PostMapping (value = "/consultations")
