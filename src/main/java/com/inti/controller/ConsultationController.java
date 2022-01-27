@@ -10,6 +10,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.inti.entities.Consultation;
@@ -35,13 +37,9 @@ public class ConsultationController {
 	}
 	
 	//findBy (idOrdonnance)
-<<<<<<< HEAD
-	@GetMapping(value="/ordonnances/consultations/{idO}")
-	public Consultation findByIdOrdonnance(@PathVariable("idO") Long idOrdonnance) {
-=======
+
 	@RequestMapping(value="ordonnances/consultations/{idO}", method = RequestMethod.GET)
 	public List<Consultation> findByIdOrdonnance(@PathVariable("idO") Long idOrdonnance) {
->>>>>>> cfb36f2377753fb399c4e8e0e4ac1c6387bd588a
 		return consultationService.findByIdOrdonnance(idOrdonnance);
 	}
 	
