@@ -18,4 +18,6 @@ public interface IConsultationService {
 	Consultation findByIdPatientAndDate(Long idPatient, Date date);
 	
 	List<Consultation> findByIdOrdonnance(Long idOrdonnance);
+	
+	List<Consultation> showConsultationByUsernamePatient(String username);
 }

@@ -48,4 +48,9 @@ public class ConsultationService implements IConsultationService {
 	public List<Consultation> findByIdOrdonnance(Long idOrdonnance) {
 		return consultationRepository.showConsultationById(idOrdonnance);
 	}
+
+	@Override
+	public List<Consultation> showConsultationByUsernamePatient(String username) {
+		return consultationRepository.showConsultationByUsernamePatient(username);
+	}
 }
