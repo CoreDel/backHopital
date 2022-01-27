@@ -3,8 +3,10 @@ package com.inti.repositories;
 import java.util.List;
 
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.inti.entities.Utilisateur;
 
@@ -25,15 +27,20 @@ public interface UtilisateurRepository extends JpaRepository<Utilisateur, Long>{
 	Integer nbUserByRole(String Role);
 	
 	// update user+role
+	@Modifying
+	@Transactional
 	@Query(value = "UPDATE utilisateur u INNER JOIN profil p ON u.id_utilisateur=p.id_utilisateur "
 			+ "SET u.nom_utilisateur = ?1, u.prenom_utilisateur = ?2, u.age = ?3, u.password = ?4, p.id_role = ?5"
 			+ " WHERE u.id_utilisateur= ?6 ", nativeQuery = true)
-	Utilisateur majUtilisateurAndRole(String nomUtilisateur, String prenomUtilisateur, Long age, String password, Long idRole, Long idUtilisateur);
+	void majUtilisateurAndRole(String nomUtilisateur, String prenomUtilisateur, Long age, String password, Long idRole, Long idUtilisateur);
 		
 	//save user+role
-	@Query(value = "INSERT INTO utilisateur(dossier_medical,nom_utilisateur,prenom_utilisateur,age,username, password, id_hopital) "
-			+ "VALUES(?1, ?2, ?3, ?4, ?5, ?6, ?7);"
-			+ "INSERT INTO profil (id_utilisateur, id_role) VALUES (LAST_INSERT_ID(), ?8);" , nativeQuery = true)
-	Utilisateur saveUtilisateurAndRole(String dossierMedical, String nomUtilisateur, String prenomUtilisateur, Long age, String username, String password, Long idRole, Long idUtilisateur);
+	@Modifying
+	@Transactional
+	@Query(value = "INSERT INTO utilisateur(dossier_medical,nom_utilisateur,prenom_utilisateur,age,username, password) "
+			+ "VALUES(?1, ?2, ?3, ?4, ?5, ?6);"
+			+ "INSERT INTO profil (id_utilisateur, id_role) VALUES (LAST_INSERT_ID(), ?7);" , nativeQuery = true)
+	void saveUtilisateurAndRole(String dossierMedical, String nomUtilisateur, String prenomUtilisateur, Long age, String username, String password, Long idRole);
 		
+	
 }

@@ -16,4 +16,6 @@ public interface IMedicamentService {
 	List<Medicament> findByNomMedicament(String nomMedicament);
 	
 	List<Medicament> findByIdOrdonnance(Long idOrdonnance);
+	
+	void modifyQuantiteMedoc(Long idMedicament, Long quantiteMedicament);
 }

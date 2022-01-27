@@ -58,6 +58,14 @@ public class MedicamentController {
 		return medicamentService.save(currentMedicament);
 	}
 	
+	// update quantite 
+//	@PutMapping("/medicaments/updateQuantite/{idM}")
+//	public Medicament modifyQuantiteMedoc(@PathVariable("idM") Long idMedicament, @RequestBody Long quantiteMedicament) {
+//		Medicament currentMedicament = medicamentService.findOne(idMedicament);
+//		currentMedicament.setQuantMedicament(quantiteMedicament);
+//		return medicamentService.save(currentMedicament);
+//	}
+	
 	@DeleteMapping("/medicaments/{idM}")
 	public void deleteMedicament(@PathVariable("idM") Long idMedicament) {
 		medicamentService.delete(idMedicament);

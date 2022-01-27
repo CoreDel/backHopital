@@ -46,4 +46,9 @@ public class MedicamentService implements IMedicamentService {
 		return medicamentRepository.showMedocById(idOrdonnance);
 	}
 
+	@Override
+	public void modifyQuantiteMedoc(Long idMedicament, Long quantiteMedicament) {
+		medicamentRepository.modifyQuantiteMedoc(idMedicament, quantiteMedicament);
+	}
+
 }
