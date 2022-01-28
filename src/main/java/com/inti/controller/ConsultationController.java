@@ -1,5 +1,6 @@
 package com.inti.controller;
 
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -36,6 +37,13 @@ public class ConsultationController {
 		return consultationService.findOne(idConsultation);
 	}
 	
+	//Find by date
+	@GetMapping(value = "/consultations/date/{date}")
+	public List<Consultation> findByDate(@PathVariable("date") Date date) {
+		List<Consultation> consultations = consultationService.findByDate(date);
+		return consultations;
+	}
+	
 	//findBy (idOrdonnance)
 	@RequestMapping(value="ordonnances/consultations/{idO}", method = RequestMethod.GET)
 	public List<Consultation> findByIdOrdonnance(@PathVariable("idO") Long idOrdonnance) {
@@ -47,7 +55,6 @@ public class ConsultationController {
 	public List<Consultation> showConsultationByUsernamePatient(@PathVariable("username") String usernamePatient) {
 		return consultationService.showConsultationByUsernamePatient(usernamePatient);
 	}
-		
 	
 	//sauvegarder
 	@PostMapping (value = "/consultations")

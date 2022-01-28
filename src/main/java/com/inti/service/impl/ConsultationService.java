@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.inti.entities.Consultation;
+import com.inti.entities.Medicament;
 import com.inti.repositories.ConsultationRepository;
 import com.inti.service.interfaces.IConsultationService;
 
@@ -36,12 +37,11 @@ public class ConsultationService implements IConsultationService {
 	@Override
 	public void delete(Long idConsultation) {
 		consultationRepository.deleteById(idConsultation);
-
 	}
 
 	@Override
-	public Consultation findByIdPatientAndDate(Long idPatient, Date date) {
-		return consultationRepository.findByIdPatientAndDate(idPatient, date);
+	public List<Consultation> findByDate(Date date) {
+		return consultationRepository.findByDate(date);
 	}
 
 	@Override
